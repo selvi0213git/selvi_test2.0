@@ -1,0 +1,53 @@
+/**
+ * Form - input file
+ * [HTML]
+	<div class="filebox">
+		<input class="input-file-name" type="text" disabled="disabled">
+ 	  <label for="attach">Uploads</label>
+ 		  <input class="hidden-input-file" type="file" id="attach">
+	</div>
+ * [JS]
+ * ui.filebox(); -> 'selvi-ui.js'
+ */
+
+.filebox {
+	position: relative;
+	padding-right: em(96, 18);
+
+	label {
+		position: absolute;
+		top: 0;
+		right: 0;
+	  display: block;
+	  width: em(91);
+	  background-color: #ddd;
+	  box-sizing: border-box;
+	  cursor: pointer;
+  	font-size: em(16, 18);
+	  line-height: 42px;
+	  text-align: center;
+	}
+
+	input[type=text]:disabled {
+		width: 100%;
+		background: #fff;
+		display: block !important;
+	}
+
+	input[type="file"] {  //hide file field
+	  position: absolute;
+	  width: 1px;
+	  height: 1px;
+	  padding: 0;
+	  margin: -1px;
+	  overflow: hidden;
+	  clip:rect(0,0,0,0);
+	  border: 0;
+	}
+
+	@include responsive($width-small-medium) {
+		label {
+			line-height: 36.6px;
+		}
+	}
+}//filebox

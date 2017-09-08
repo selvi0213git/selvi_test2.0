@@ -1,0 +1,53 @@
+/**
+ * Selvi Typography =================================
+ */
+@import "noto-sans-kr-bl";
+@import "noto-sans-kr-b";
+@import "noto-sans-kr-m";
+@import "noto-sans-kr-r";
+@import "khnphan-dotum-regular";
+@import "khnphan-dotum-bold";
+
+$font-color: #555555;
+
+
+@mixin font-extra-bold {
+  font-family: 'Noto Sans Korean Black', sans-serif;
+  font-weight: 900;
+}
+@mixin font-bold {
+  font-family: 'Noto Sans Korean Bold', sans-serif;
+  font-weight: 700;
+}
+@mixin font-medium {
+  font-family: 'Noto Sans Korean Medium', sans-serif;
+  font-weight: 500;
+}
+@mixin font-regular {
+  font-family: 'Noto Sans Korean Regular', sans-serif;
+  font-weight: 400;
+}
+@mixin font-han-regular {
+  font-family: 'KHNPHan Dotum Regular', sans-serif;
+}
+@mixin font-han-bold {
+  font-family: 'KHNPHan Dotum Bold', sans-serif;
+}
+
+
+body {
+	color: $font-color;
+	@include font-medium;
+	// font-size: 16px;
+	// word-break: keep-all;
+}
+
+a {
+  color: $font-color;
+  text-decoration: none;
+
+  &:focus, &:hover {
+  	color: $font-color;
+    text-decoration: none;
+  }
+}

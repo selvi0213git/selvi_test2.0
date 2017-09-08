@@ -1,0 +1,24 @@
+/**
+ * Selvi Home
+ */
+body.home {
+
+	.portfolio {
+		padding-top: em(28);
+
+	}
+
+	.ad_slider {
+		padding-bottom: em(18);
+	}
+
+	@include responsive(small) {
+		.portfolio {
+			padding-top: 20px;
+		}
+
+		.ad_slider {
+			// padding-bottom: 0;
+		}
+	}//small
+}//home

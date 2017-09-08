@@ -1,0 +1,92 @@
+/**
+ * Button Style
+ */
+/* clear button style */
+button, input[type=button], input[type=submit], a[role=button] {
+  /* reset */
+  // padding: 0;
+ // background: transparent;
+ // border: none;
+ 	// box-sizing: border-box;
+ cursor: pointer;
+ // font-size: 1em;
+ // outline: none;
+}
+
+$univ-button-color: $color-orange;
+
+button, input {
+	&.btn-univ {
+		display: inline-block;
+		padding: 15px 15px 16px 15px;
+		min-width: em(148, 22);
+		background-color: $color-orange;
+		color: #fff;
+		@include font-medium;
+		font-size: em(22);
+
+		&:disabled {
+			background-color: $color-gray;
+		}
+
+		&.gray {
+			background-color: $color-gray;
+		}
+
+		&-small {
+			padding-top: em(13, 18);
+			padding-bottom: em(13, 18);
+			min-width: em(148, 18);
+			font-size: em(18);
+		}
+	}
+}
+
+.btn-group {
+	@extend .clearfix;
+
+	.btn {
+		float: left;
+
+		& + .btn {
+			border-left: 0;
+		}
+	}
+}
+
+%btn-account {
+	display: inline-block;
+	width: 100%;
+	color: #fff;
+	@include font-extra-bold;
+	line-height: 1;
+
+	&:hover {
+		color: #fff;
+	}
+}
+
+button, input[type="button"], input[type="submit"], a {
+	&.btn-apply-facebook {
+		@extend %btn-account;
+		padding: 15px 0;
+		max-width: 294px;
+		background-color: $color-facebook-blue;
+		border-radius: 2px;
+		font-size: 21px;
+		line-height: 1.3;
+
+		&:disabled {
+			background-color: $color-gray;
+		}
+	}
+
+	&.btn-login-facebook {
+		@extend %btn-account;
+		padding-top: 18px;
+		padding-bottom: 19px;
+		max-width: 308px;
+		background-color: $color-facebook-blue;
+		font-size: em(26);
+	}
+}

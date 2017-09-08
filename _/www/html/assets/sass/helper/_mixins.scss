@@ -1,0 +1,263 @@
+// Typo =============================================
+@mixin font-medium {
+  font-family: "Nanum Gothic", sans-serif;
+  font-weight: 400;
+}
+
+@mixin font-bold {
+  font-family: "Nanum Gothic Bold", sans-serif;
+  font-weight: 700;
+}
+
+@mixin font-extra-bold {
+  font-family: "Nanum Gothic Extra Bold", sans-serif;
+  font-weight: 800;
+}
+
+@mixin font-number {
+  font-family: 'BM JUA';
+  font-weight: 400;
+}
+
+// Layout ===========================================
+@mixin inline-block {
+  display: inline-block;
+  // *display: inline;
+  // *zoom: 1;
+}
+
+@mixin color-rgba($red, $green, $blue, $alpha) {
+  color: rgb($red, $green, $blue);
+  color: rgba($red, $green, $blue, $alpha);
+}
+
+@mixin text-vertical-middle($height) {
+  height: $height;
+  line-height: $height;
+}
+
+@mixin border-radius($radius) {
+  border-radius: $radius;
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+}
+
+@mixin background($file, $x: 0, $y: 0, $repeat: no-repeat) {
+  background-image: url($file);
+  background-position: $x $y;
+  background-repeat: $repeat;
+}
+
+@mixin background-size($width, $height) {
+  background-size: $width $height;
+  -webkit-background-size: $width $height;
+  -moz-background-size: $width $height;
+  -ms-background-size: $width $height;
+  background-repeat: no-repeat;
+
+  .old-ie & {
+    background-repeat: repeat;
+  }
+}
+
+$transition-cubic: cubic-bezier(.21,.5,.52,1);
+
+@mixin transition($property, $duration, $timing-function: $transition-cubic, $delay: 0s) {
+  transition: $property $duration $timing-function $delay;
+  -webkit-transition: $property $duration $timing-function $delay;
+  -moz-transition: $property $duration $timing-function $delay;
+  -ms-transition: $property $duration $timing-function $delay;
+}
+
+@mixin transform-scale($width-scale, $height-scale) {
+  transform: scale($width-scale, $height-scale);
+  -webkit-transform: scale($width-scale, $height-scale);
+  -moz-transform: scale($width-scale, $height-scale);
+  -ms-transform: scale($width-scale, $height-scale);
+}
+
+@mixin transform-skew($deg-x, $deg-y) {
+  /* IE 9 */
+  -ms-transform: skew($deg-x, $deg-y);
+  /* Safari */
+  -webkit-transform: skew($deg-x, $deg-y);
+  transform: skew($deg-x, $deg-y);
+}
+
+@mixin transform-rotate($deg) {
+  -ms-transform: rotate($deg); /* IE 9 */
+  -webkit-transform: rotate($deg); /* Chrome, Safari, Opera */
+  transform: rotate($deg);
+}
+
+// @mixin opacity($opacity) {
+//   opacity: $opacity;
+//   filter: alpha(opacity = $opacity * 100);
+// }
+
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-o-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+
+// Responsive ======================================
+@mixin responsive($width) {
+  @if $width == xsmall {
+    @media screen and (max-width: $width-xsmall) {
+      @content;
+    }
+  }
+  @else if $width == small {
+    @media screen and (max-width: $width-small) {
+      @content;
+    }
+  }
+  @else if $width == medium {
+    @media screen and (max-width: $width-medium) {
+      @content;
+    }
+  }
+  @else if $width == large {
+    @media screen and (min-width: $width-large) {
+      @content;
+    }
+  }
+  @else {
+    @media screen and (max-width: $width) {
+      @content;
+    }
+  }
+}
+
+@mixin remove-float {
+  float: none;
+  margin-left: 0;
+  margin-right: 0;
+  width: auto;
+}
+
+// Unit =============================================
+$browser-context: 16;
+
+@function em($pixels, $context: $browser-context) {
+  @if unitless($pixels) {
+    $pixels: $pixels * 1px;
+  }
+
+  @if unitless($context) {
+    $context: $context * 1px;
+  }
+
+  @return $pixels / $context * 1em;
+}
+
+@function per($target, $parent: $content-width) {
+
+  @return (strip-unit($target) / strip-unit($parent)) * 100%;
+}
+
+/// Remove the unit of a length
+/// @param {Number} $number - Number to remove unit from
+/// @return {Number} - Unitless number
+@function strip-unit($number) {
+  @if type-of($number) == "number" and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+
+
+//Objects ==========================================
+@mixin circle($diameter, $bg-color: #fff) {
+  display: block;
+  width: $diameter;
+  height: $diameter;
+  background-color: $bg-color;
+
+  @include border-radius($diameter / 2);
+
+  line-height: $diameter;
+}
+ 
+@mixin responsive-square {
+  position: relative;
+  width: 100%;
+
+  &:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+  }
+
+  .content {
+    position: absolute;
+    top: 50%;
+    margin-top: -0.5em;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@mixin responsive-rect($vertical-height-per) {
+  position: relative;
+  width: 100%;
+
+  &:after {
+    content: "";
+    display: block;
+    padding-bottom: $vertical-height-per;
+  }
+
+  .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+}
+
+@mixin circle-num($size, $bg-color, $font-size: 1em) {
+  @include inline-block;
+
+  width: $size;
+
+  @include text-vertical-middle($size);
+
+  background-color: $bg-color;
+
+  @include border-radius(50%);
+
+  font-size: $font-size;
+  text-align: center;
+}
+
+@mixin add-divider($color: rgba(#000, 0.2), $width: 1px, $height: 1em) {
+  position: relative;
+  
+  &:before {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    display: block;
+    margin-top: -0.5em;
+    width: $width;
+    height: $height;
+    background-color: $color;
+  }
+}

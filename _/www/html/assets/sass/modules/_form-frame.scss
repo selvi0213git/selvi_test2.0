@@ -1,0 +1,155 @@
+/**
+ * Form Frame
+ */
+.form-frame {
+	border-top: 2px solid #a1a1a1;
+
+	.check-form {
+		label {
+			color: #4e9ae1;
+			font-size: em(18);
+		}
+	}
+
+	.field-agree {
+		margin-top: em(47);
+		padding-top: em(20);
+		padding-bottom: em(22);
+		background-color: $color-white-gray;
+		border-top: 2px solid #a1a1a1;
+		text-align: center;
+
+		.check-form {
+			margin-right: em(28);
+
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+
+		.wpcf7-form-control-wrap {
+			color: #4e9ae1;
+			font-size: em(18);
+
+			input[type=checkbox] {
+				margin-right: 4px;
+			}
+		}
+	}
+
+	.field-control {
+		margin-top: em(40);
+		text-align: center;
+
+		.btn-univ {
+			width: 100%;
+			max-width: 228px;
+		}
+	}
+
+	@include responsive(small) {
+		.field-agree {
+			padding-left: 20px;
+			text-align: left;
+			
+			.check-form {
+				display: block;
+
+				& + .check-form {
+					margin-top: 9px;
+				}
+			}
+		}
+	}
+}//form-frame
+
+.form-list {
+	padding-left: 17px;
+	@include font-regular;
+	font-size: em(18);
+	text-align: left;
+
+	.required {
+		color: $color-orange;
+	}
+
+	dl {
+		display: table;
+		width: 100%;
+
+		& + dl {
+			padding-top: em(10, 18);
+		}
+
+		dt, dd {
+			display: table-cell;
+			vertical-align: middle;
+		}
+
+		dt {
+			width: 118px;
+			line-height: 1;
+		}
+
+		dd {
+			width: auto;
+		}
+	}
+
+	.field-mobile {
+		dd {
+			@extend .clearfix;
+			input {
+				float: left;
+				width: per(109, 367);
+			}
+			.dash {
+				float: left;
+				display: inline-block;
+				width: per(20, 367);
+				line-height: em(42, 18);
+				text-align: center;
+				vertical-align: top;
+			}
+		}
+	}
+
+	.field-addr {
+		input + input {
+			margin-top: em(10, 18);
+		}
+	}
+
+	@include responsive($width-small-medium) {
+		padding-left: 0;
+
+		dl {
+			display: block;
+
+			& + dl {
+				padding-top: 15px;
+			}
+
+			dt, dd {
+				display: block;
+			}
+
+			dt {
+				margin-bottom: 7px;
+			}
+		}
+
+		.input-text,
+		.textarea,
+		.filebox {
+			width: 100%;
+		}
+
+		.field-mobile {
+			.col-6 {
+				width: 100%;
+			}
+		}
+	}
+}//form-list
+

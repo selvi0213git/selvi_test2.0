@@ -1,0 +1,19 @@
+/**
+ * Customize Nivo Slider
+ */
+.theme-default .nivo-controlNav {
+	padding-top: em(20) !important;
+	padding-bottom: 0 !important;
+
+	.nivo-control {
+		margin-left: em(6);
+		margin-right: em(6);
+		width: em(9);
+		height: em(9);
+		background: #d9dbde;
+
+		&.active {
+			background: #48494a;
+		}
+	}
+}

@@ -1,0 +1,19 @@
+/**
+ * Write Adress
+ */
+.write-address {
+	padding-bottom: em(65);
+
+	.form-frame {
+		padding-top: 14px;
+
+		.check-default {
+			float: right;
+			margin-bottom: em(10);
+		}
+
+		.form-list {
+			clear: both;
+		}
+	}
+}

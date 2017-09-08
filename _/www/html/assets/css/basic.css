@@ -1,0 +1,580 @@
+/**
+ * Basic style
+ */
+.icon {
+  display: inline-block;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  vertical-align: middle;
+}
+
+/**
+ * Utils =================================
+ */
+/* 12 Column Grid */
+.col-1 {
+  width: 8.33333333333333%;
+}
+
+.col-2 {
+  width: 16.66666666666667%;
+}
+
+.col-4 {
+  width: 33.33333333333333%;
+}
+
+.col-5 {
+  width: 41.66666666666667%;
+}
+
+.col-6 {
+  width: 50%;
+}
+
+.col-7 {
+  width: 58.33333333333333%;
+}
+
+.col-8 {
+  width: 66.66666666666667%;
+}
+
+.col-9 {
+  width: 75%;
+}
+
+.col-10 {
+  width: 83.33333333333333%;
+}
+
+.col-11 {
+  width: 91.66666666666667%;
+}
+
+.col-12 {
+  width: 100%;
+}
+
+.flex-img {
+  display: block;
+  max-width: 100%;
+}
+
+/**
+ * Selvi Typography =================================
+ */
+@font-face {
+  font-family: 'Noto Sans Korean Black';
+  font-style: normal;
+  font-weight: 900;
+  src: url("../fonts/NotoSansKR-Black-Hestia.eot");
+  src: url("../fonts/NotoSansKR-Black-Hestia.eot?#iefix") format("embedded-opentype"), url("../fonts/NotoSansKR-Black-Hestia.woff") format("woff"), url("../fonts/NotoSansKR-Black-Hestia.otf") format("opentype");
+}
+@font-face {
+  font-family: 'Noto Sans Korean Bold';
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/NotoSansKR-Bold-Hestia.eot");
+  src: url("../fonts/NotoSansKR-Bold-Hestia.eot?#iefix") format("embedded-opentype"), url("../fonts/NotoSansKR-Bold-Hestia.woff") format("woff"), url("../fonts/NotoSansKR-Bold-Hestia.otf") format("opentype");
+}
+@font-face {
+  font-family: 'Noto Sans Korean Medium';
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/NotoSansKR-Medium-Hestia.eot");
+  src: url("../fonts/NotoSansKR-Medium-Hestia.eot?#iefix") format("embedded-opentype"), url("../fonts/NotoSansKR-Medium-Hestia.woff") format("woff"), url("../fonts/NotoSansKR-Medium-Hestia.otf") format("opentype");
+}
+@font-face {
+  font-family: 'Noto Sans Korean Regular';
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/NotoSansKR-Regular-Hestia.eot");
+  src: url("../fonts/NotoSansKR-Regular-Hestia.eot?#iefix") format("embedded-opentype"), url("../fonts/NotoSansKR-Regular-Hestia.woff") format("woff"), url("../fonts/NotoSansKR-Regular-Hestia.otf") format("opentype");
+}
+@font-face {
+  font-family: 'KHNPHan Dotum Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/khnphdotfr.eot");
+  src: url("../fonts/khnphdotfr.eot?#iefix") format("embedded-opentype"), url("../fonts/khnphdotfr.woff") format("woff"), url("../fonts/KHNPHDotfR.otf") format("opentype");
+}
+@font-face {
+  font-family: 'KHNPHan Dotum Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/khnphdotfb.eot");
+  src: url("../fonts/khnphdotfb.eot?#iefix") format("embedded-opentype"), url("../fonts/khnphdotfb.woff") format("woff"), url("../fonts/KHNPHDotfB.otf") format("opentype");
+}
+body {
+  color: #555555;
+  font-family: 'Noto Sans Korean Medium', sans-serif;
+  font-weight: 500;
+}
+
+a {
+  color: #555555;
+  text-decoration: none;
+}
+a:focus, a:hover {
+  color: #555555;
+  text-decoration: none;
+}
+
+/**
+ * Components ===============================
+ */
+/**
+ * Form Style
+ */
+button, input, select, textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  border: none;
+  box-shadow: none;
+  box-sizing: border-box;
+  outline: none;
+  /* Placeholder Style for IE */
+  /* Basic Style */
+  color: #555555;
+  font-family: 'Noto Sans Korean Regular', sans-serif;
+  font-weight: 400;
+  font-size: 1em;
+  line-height: 1;
+}
+button:-ms-input-placeholder, input:-ms-input-placeholder, select:-ms-input-placeholder, textarea:-ms-input-placeholder {
+  color: #555555 !important;
+}
+
+button {
+  background: transparent;
+}
+
+.input-text, .styled-select-outer select, .styled-select-outer .alt-select {
+  padding-top: 0.27778em;
+  padding-bottom: 0.33333em;
+  padding-left: 0.27778em;
+  border: 2px solid #dddddd;
+  box-sizing: border-box;
+  line-height: 1.5em;
+}
+
+.textarea {
+  display: block;
+  padding-left: 0.27778em;
+  border: 2px solid #dddddd;
+  box-sizing: border-box;
+  line-height: 1.5em;
+  overflow: auto;
+  resize: none;
+}
+
+/**
+ * Checkbox
+ */
+/* Default Checkbox */
+input[type=checkbox],
+input[type=radio] {
+  -webkit-appearance: checkbox !important;
+  -moz-appearance: checkbox !important;
+  -ms-appearance: checkbox !important;
+  -o-appearance: checkbox !important;
+  appearance: checkbox !important;
+}
+
+.check-form {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  /* Checkbox */
+  /* Radio Button */
+}
+.check-form input[type=radio],
+.check-form input[type=checkbox] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+.check-form label {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 0;
+  font-family: 'Noto Sans Korean Regular', sans-serif;
+  font-weight: 400;
+  line-height: 1em;
+}
+.check-form input[type=checkbox] + label:before {
+  content: ' ';
+  display: inline-block;
+  margin-right: 10px;
+  width: 15px;
+  height: 14px;
+  background-color: #fff;
+  border: 1px solid #7f7f7f;
+  box-sizing: border-box;
+}
+.check-form input[type=checkbox]:checked + label:before {
+  background: #fff url(../images/form-check.png) center center no-repeat;
+  background-size: contain;
+}
+
+/**
+ * Form - input file
+ * [HTML]
+	<div class="filebox">
+		<input class="input-file-name" type="text" disabled="disabled">
+ 	  <label for="attach">Uploads</label>
+ 		  <input class="hidden-input-file" type="file" id="attach">
+	</div>
+ * [JS]
+ * ui.filebox(); -> 'selvi-ui.js'
+ */
+.filebox {
+  position: relative;
+  padding-right: 5.33333em;
+  box-sizing: border-box;
+}
+.filebox label {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  padding-top: 0.3125em;
+  padding-bottom: 0.375em;
+  width: 5.6875em;
+  background-color: #ddd;
+  border-top: 2px solid #ddd;
+  border-bottom: 2px solid #ddd;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-size: 0.88889em;
+  line-height: 1.6875em;
+  text-align: center;
+}
+.filebox input[type=text]:disabled,
+.filebox .input-file-name {
+  width: 100%;
+  background: #fff;
+  display: block !important;
+}
+.filebox input[type="file"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/**
+ * Button Style
+ */
+/* clear button style */
+button, input[type=button], input[type=submit], a[role=button] {
+  /* reset */
+  cursor: pointer;
+}
+
+button.btn-univ, input.btn-univ, a.btn-univ {
+  display: inline-block;
+  padding: 15px 15px 16px 15px;
+  min-width: 6.72727em;
+  background-color: #ff7521;
+  color: #fff;
+  font-family: 'Noto Sans Korean Medium', sans-serif;
+  font-weight: 500;
+  font-size: 1.375em;
+}
+button.btn-univ:disabled, input.btn-univ:disabled, a.btn-univ:disabled {
+  background-color: #bcc1c7;
+}
+button.btn-univ.gray, input.btn-univ.gray, a.btn-univ.gray {
+  background-color: #bcc1c7;
+}
+button.btn-univ-small, input.btn-univ-small, a.btn-univ-small {
+  padding-top: 0.72222em;
+  padding-bottom: 0.72222em;
+  min-width: 8.22222em;
+  font-size: 1.125em;
+}
+
+.btn-group {
+  zoom: 1;
+  /* ie 6/7 */
+}
+.btn-group::before, .btn-group::after {
+  content: "";
+  display: table;
+}
+.btn-group::after {
+  clear: both;
+}
+.btn-group .btn {
+  float: left;
+}
+.btn-group .btn + .btn {
+  border-left: 0;
+}
+
+button.btn-apply-facebook, button.btn-selvi, input[type="button"].btn-apply-facebook, input[type="button"].btn-selvi, input[type="submit"].btn-apply-facebook, input[type="submit"].btn-selvi, a.btn-apply-facebook, a.btn-selvi, button.btn-login-facebook, input[type="button"].btn-login-facebook, input[type="submit"].btn-login-facebook, a.btn-login-facebook {
+  display: inline-block;
+  width: 100%;
+  color: #fff;
+  font-family: 'Noto Sans Korean Black', sans-serif;
+  font-weight: 900;
+  line-height: 1;
+}
+button.btn-apply-facebook:hover, button.btn-selvi:hover, input[type="button"].btn-apply-facebook:hover, input[type="button"].btn-selvi:hover, input[type="submit"].btn-apply-facebook:hover, input[type="submit"].btn-selvi:hover, a.btn-apply-facebook:hover, a.btn-selvi:hover, button.btn-login-facebook:hover, input[type="button"].btn-login-facebook:hover, input[type="submit"].btn-login-facebook:hover, a.btn-login-facebook:hover {
+  color: #fff;
+}
+
+button.btn-apply-facebook, button.btn-selvi, input[type="button"].btn-apply-facebook, input[type="button"].btn-selvi, input[type="submit"].btn-apply-facebook, input[type="submit"].btn-selvi, a.btn-apply-facebook, a.btn-selvi {
+  padding: 15px 0;
+  max-width: 294px;
+  background-color: #4c73c4;
+  border-radius: 2px;
+  font-size: 21px;
+  line-height: 1.3;
+  text-align: center;
+}
+button.btn-apply-facebook:disabled, button.btn-selvi:disabled, input[type="button"].btn-apply-facebook:disabled, input[type="button"].btn-selvi:disabled, input[type="submit"].btn-apply-facebook:disabled, input[type="submit"].btn-selvi:disabled, a.btn-apply-facebook:disabled, a.btn-selvi:disabled {
+  background-color: #bcc1c7;
+}
+button.btn-apply-facebook.blue, button.btn-selvi.blue, input[type="button"].btn-apply-facebook.blue, input[type="button"].btn-selvi.blue, input[type="submit"].btn-apply-facebook.blue, input[type="submit"].btn-selvi.blue, a.btn-apply-facebook.blue, a.btn-selvi.blue {
+  background-color: #4c73c4;
+}
+button.btn-apply-facebook.orange, button.btn-selvi.orange, input[type="button"].btn-apply-facebook.orange, input[type="button"].btn-selvi.orange, input[type="submit"].btn-apply-facebook.orange, input[type="submit"].btn-selvi.orange, a.btn-apply-facebook.orange, a.btn-selvi.orange {
+  background-color: #ff7521;
+}
+button.btn-apply-facebook.gray, button.btn-selvi.gray, input[type="button"].btn-apply-facebook.gray, input[type="button"].btn-selvi.gray, input[type="submit"].btn-apply-facebook.gray, input[type="submit"].btn-selvi.gray, a.btn-apply-facebook.gray, a.btn-selvi.gray {
+  background-color: #bcc1c7;
+}
+button.btn-login-facebook, input[type="button"].btn-login-facebook, input[type="submit"].btn-login-facebook, a.btn-login-facebook {
+  padding-top: 18px;
+  padding-bottom: 19px;
+  max-width: 308px;
+  background-color: #4c73c4;
+  font-size: 1.625em;
+}
+
+/**
+ * alternative to custom styling of the SELECT elements
+ */
+/* all form DIVs have position property set to relative so we can easily position newly created SPAN */
+/**
+ * <div class="styled-select-outer">
+		<select>
+			<option value=""></option>
+		</select>
+	</div><!-- /.styled-select-outer -->
+ */
+/* Styled Select Univ */
+.styled-select-outer {
+  position: relative;
+  display: inline-block;
+  line-height: 1;
+  vertical-align: middle;
+}
+.styled-select-outer select {
+  position: relative;
+  z-index: 10;
+  padding-right: 1.66667em;
+  box-sizing: content-box;
+  font-size: 1.125em;
+}
+.styled-select-outer .alt-select {
+  float: left;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-right: 1.66667em !important;
+  background: url(../images/select-arrow@2x.png) no-repeat 100% center;
+  background-size: auto 14.70588%;
+  box-sizing: border-box;
+  cursor: default;
+  font-size: 1.125em;
+  z-index: 1;
+}
+
+/* Icon */
+.icon.facebook.xs {
+  width: 0.5625em;
+  height: 0.9375em;
+  background-image: url(../images/icon-facebook-xs@2x.png);
+}
+
+/* Flag */
+.text-flag {
+  display: inline-block;
+  padding: 0 0.5em;
+  background-color: #4c73c4;
+  border-radius: 0.1875em;
+}
+.text-flag.disabled {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.text-flag .tit {
+  color: #fff;
+  font-size: 0.75em;
+  line-height: 2.5em;
+}
+.text-flag .icon {
+  margin-left: 0.125em;
+  margin-right: 0.0625em;
+}
+
+/**
+ * Form Frame
+ */
+.form-frame {
+  border-top: 2px solid #a1a1a1;
+}
+.form-frame .check-form label {
+  color: #4e9ae1;
+  font-size: 1.125em;
+}
+.form-frame .check-form label a {
+  color: #4e9ae1;
+}
+.form-frame .field-agree {
+  margin-top: 2.9375em;
+  padding-top: 1.25em;
+  padding-bottom: 1.375em;
+  background-color: #f2f4f7;
+  border-top: 2px solid #a1a1a1;
+  text-align: center;
+}
+.form-frame .field-agree .check-form {
+  margin-right: 1.75em;
+}
+.form-frame .field-agree .check-form:last-child {
+  margin-right: 0;
+}
+.form-frame .field-agree .wpcf7-form-control-wrap {
+  color: #4e9ae1;
+  font-size: 1.125em;
+}
+.form-frame .field-agree .wpcf7-form-control-wrap input[type=checkbox] {
+  margin-right: 4px;
+}
+.form-frame .field-control {
+  margin-top: 2.5em;
+  text-align: center;
+}
+.form-frame .field-control .btn-univ {
+  width: 100%;
+  max-width: 228px;
+}
+@media screen and (max-width: 441px) {
+  .form-frame .field-agree {
+    padding-left: 20px;
+    text-align: left;
+  }
+  .form-frame .field-agree .check-form {
+    display: block;
+  }
+  .form-frame .field-agree .check-form + .check-form {
+    margin-top: 9px;
+  }
+}
+
+.form-list {
+  padding-left: 17px;
+  font-family: 'Noto Sans Korean Regular', sans-serif;
+  font-weight: 400;
+  font-size: 1.125em;
+  text-align: left;
+}
+.form-list .required {
+  color: #ff7521;
+}
+.form-list dl {
+  display: table;
+  margin-top: 0;
+  margin-bottom: 0;
+  width: 100%;
+}
+.form-list dl + dl {
+  padding-top: 0.55556em;
+}
+.form-list dl dt, .form-list dl dd {
+  display: table-cell;
+  vertical-align: middle;
+}
+.form-list dl dt {
+  width: 118px;
+  line-height: 1;
+}
+.form-list dl dd {
+  width: auto;
+}
+.form-list .field-mobile dd {
+  zoom: 1;
+  /* ie 6/7 */
+}
+.form-list .field-mobile dd::before, .form-list .field-mobile dd::after {
+  content: "";
+  display: table;
+}
+.form-list .field-mobile dd::after {
+  clear: both;
+}
+.form-list .field-mobile dd input {
+  float: left;
+  width: 29.70027%;
+}
+.form-list .field-mobile dd .dash {
+  float: left;
+  display: inline-block;
+  width: 5.44959%;
+  line-height: 2.33333em;
+  text-align: center;
+  vertical-align: top;
+}
+.form-list .field-addr input + input {
+  margin-top: 0.55556em;
+}
+@media screen and (max-width: 767px) {
+  .form-list {
+    padding-left: 0;
+  }
+  .form-list dl {
+    display: block;
+  }
+  .form-list dl + dl {
+    padding-top: 15px;
+  }
+  .form-list dl dt, .form-list dl dd {
+    display: block;
+  }
+  .form-list dl dt {
+    margin-bottom: 7px;
+  }
+  .form-list dl dd {
+    margin-left: 0;
+  }
+  .form-list .input-text, .form-list .styled-select-outer select, .styled-select-outer .form-list select, .form-list .styled-select-outer .alt-select, .styled-select-outer .form-list .alt-select,
+  .form-list .textarea,
+  .form-list .filebox {
+    width: 100%;
+  }
+  .form-list .field-mobile .col-6 {
+    width: 100%;
+  }
+}
+
+/*# sourceMappingURL=basic.css.map */

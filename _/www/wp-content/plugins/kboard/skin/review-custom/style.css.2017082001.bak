@@ -1,0 +1,1566 @@
+/**
+ * Kboard Selvi Theme - Base on Kboard Ask One Theme
+ */
+/**
+ * Selvi Typography =================================
+ */
+@font-face {
+  font-family: 'Noto Sans Korean Black';
+  font-style: normal;
+  font-weight: 900;
+  src: url("../fonts/NotoSansKR-Black-Hestia.eot");
+  src: url("../fonts/NotoSansKR-Black-Hestia.eot?#iefix") format("embedded-opentype"), url("../fonts/NotoSansKR-Black-Hestia.woff") format("woff"), url("../fonts/NotoSansKR-Black-Hestia.otf") format("opentype"); }
+@font-face {
+  font-family: 'Noto Sans Korean Bold';
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/NotoSansKR-Bold-Hestia.eot");
+  src: url("../fonts/NotoSansKR-Bold-Hestia.eot?#iefix") format("embedded-opentype"), url("../fonts/NotoSansKR-Bold-Hestia.woff") format("woff"), url("../fonts/NotoSansKR-Bold-Hestia.otf") format("opentype"); }
+@font-face {
+  font-family: 'Noto Sans Korean Medium';
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/NotoSansKR-Medium-Hestia.eot");
+  src: url("../fonts/NotoSansKR-Medium-Hestia.eot?#iefix") format("embedded-opentype"), url("../fonts/NotoSansKR-Medium-Hestia.woff") format("woff"), url("../fonts/NotoSansKR-Medium-Hestia.otf") format("opentype"); }
+@font-face {
+  font-family: 'Noto Sans Korean Regular';
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/NotoSansKR-Regular-Hestia.eot");
+  src: url("../fonts/NotoSansKR-Regular-Hestia.eot?#iefix") format("embedded-opentype"), url("../fonts/NotoSansKR-Regular-Hestia.woff") format("woff"), url("../fonts/NotoSansKR-Regular-Hestia.otf") format("opentype"); }
+@font-face {
+  font-family: 'KHNPHan Dotum Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/khnphdotfr.eot");
+  src: url("../fonts/khnphdotfr.eot?#iefix") format("embedded-opentype"), url("../fonts/khnphdotfr.woff") format("woff"), url("../fonts/KHNPHDotfR.otf") format("opentype"); }
+@font-face {
+  font-family: 'KHNPHan Dotum Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/khnphdotfb.eot");
+  src: url("../fonts/khnphdotfb.eot?#iefix") format("embedded-opentype"), url("../fonts/khnphdotfb.woff") format("woff"), url("../fonts/KHNPHDotfB.otf") format("opentype"); }
+body {
+  color: #555555;
+  font-family: 'Noto Sans Korean Medium', sans-serif;
+  font-weight: 500; }
+
+a {
+  color: #555555;
+  text-decoration: none; }
+  a:focus, a:hover {
+    color: #555555;
+    text-decoration: none; }
+
+/**
+ * @author http://www.cosmosfarm.com/
+ */
+img {
+  border: 0; }
+
+a.kboard-review-custom-button-small,
+input.kboard-review-custom-button-small,
+button.kboard-review-custom-button-small {
+  position: relative;
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+  margin: 0;
+  padding: 0 22px;
+  height: 38px;
+  line-height: 38px;
+  font-family: 'Noto Sans Korean Medium', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: normal;
+  color: white !important;
+  background: #ff7521 !important;
+  border: none;
+  border-radius: 0;
+  text-decoration: none !important;
+  cursor: pointer;
+  vertical-align: middle;
+  text-shadow: none;
+  box-shadow: none;
+  transition-duration: 0.3s;
+  box-sizing: content-box; }
+
+a.kboard-review-custom-button-small:hover,
+a.kboard-review-custom-button-small:focus,
+a.kboard-review-custom-button-small:active,
+input.kboard-review-custom-button-small:hover,
+input.kboard-review-custom-button-small:focus,
+input.kboard-review-custom-button-small:active,
+button.kboard-review-custom-button-small:hover,
+button.kboard-review-custom-button-small:focus,
+button.kboard-review-custom-button-small:active {
+  opacity: 1; }
+
+a.kboard-review-custom-button-gray,
+input.kboard-review-custom-button-gray,
+button.kboard-review-custom-button-gray {
+  position: relative;
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+  margin: 0;
+  padding: 0 10px;
+  height: 28px;
+  line-height: 28px;
+  font-size: 13px;
+  font-weight: normal;
+  letter-spacing: normal;
+  color: white !important;
+  background: #707070 !important;
+  border: none;
+  border-radius: 0;
+  text-decoration: none !important;
+  cursor: pointer;
+  vertical-align: middle;
+  text-shadow: none;
+  box-shadow: none;
+  transition-duration: 0.3s;
+  box-sizing: content-box; }
+
+a.kboard-review-custom-button-gray:hover,
+a.kboard-review-custom-button-gray:focus,
+a.kboard-review-custom-button-gray:active,
+input.kboard-review-custom-button-gray:hover,
+input.kboard-review-custom-button-gray:focus,
+input.kboard-review-custom-button-gray:active,
+button.kboard-review-custom-button-gray:hover,
+button.kboard-review-custom-button-gray:focus,
+button.kboard-review-custom-button-gray:active {
+  opacity: 0.7; }
+
+a.kboard-review-custom-button-search,
+input.kboard-review-custom-button-search,
+button.kboard-review-custom-button-search {
+  position: relative;
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+  margin: 0;
+  padding: 0;
+  height: 28px;
+  line-height: 25px;
+  font-size: 13px;
+  font-weight: normal;
+  letter-spacing: normal;
+  color: white !important;
+  background: #13afbe !important;
+  border: none;
+  border-radius: 0;
+  text-decoration: none !important;
+  cursor: pointer;
+  vertical-align: middle;
+  text-shadow: none;
+  box-shadow: none;
+  transition-duration: 0.3s;
+  box-sizing: content-box; }
+
+a.kboard-review-custom-button-search:hover,
+a.kboard-review-custom-button-search:focus,
+a.kboard-review-custom-button-search:active,
+input.kboard-review-custom-button-search:hover,
+input.kboard-review-custom-button-search:focus,
+input.kboard-review-custom-button-search:active,
+button.kboard-review-custom-button-search:hover,
+button.kboard-review-custom-button-search:focus,
+button.kboard-review-custom-button-search:active {
+  opacity: 0.7; }
+
+.kboard-review-custom-button-search img {
+  display: inline;
+  width: 28px !important;
+  height: 28px !important;
+  vertical-align: middle; }
+
+.kboard-review-custom-poweredby {
+  float: left;
+  padding-bottom: 15px;
+  width: 100%;
+  font-size: 13px; }
+
+.kboard-review-custom-new-notify {
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+  padding: 2px 2px;
+  line-height: 10px;
+  font-size: 10px;
+  color: white;
+  background-color: #f26520;
+  font-weight: normal; }
+
+.kboard-review-custom-cut-strings {
+  width: auto;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-wrap: normal; }
+
+.kboard-review-custom-status-wait {
+  display: inline-block;
+  padding: 1px 8px 0 8px;
+  font-size: 15px;
+  font-weight: normal;
+  color: #797979;
+  background-color: #fff;
+  border: 1px solid #a4a4a4; }
+
+.kboard-review-custom-status-complete {
+  display: inline-block;
+  padding: 1px 8px 0 8px;
+  font-size: 15px;
+  font-weight: normal;
+  color: #ff7521;
+  background-color: #fff;
+  border: 1px solid #ff7521; }
+  
+/* 글씨크기 custom-style.css 에서 추가 */
+.event-board .section-hd {
+  margin-top: 0;
+  margin-left: 15px;
+  margin-bottom: 20px;
+  font-family: 'KHNPHan Dotum Bold', sans-serif;
+  font-size: 2.1875em; }
+.event-board.review {
+  margin-bottom: 3.9375em; }
+
+#kboard-review-custom-list {
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+  margin: 0;
+  width: 100%; }
+
+#kboard-review-custom-list .kboard-list-header {
+  float: left;
+  display: table;
+  padding-bottom: 15px;
+  width: 100%; }
+
+#kboard-review-custom-list .kboard-list-header form {
+  display: inline; }
+
+#kboard-review-custom-list .kboard-list-header .kboard-left {
+  *float: left;
+  display: table-cell;
+  text-align: left;
+  font-size: 13px;
+  vertical-align: middle; }
+
+#kboard-review-custom-list .kboard-list-header .kboard-right {
+  *float: right;
+  display: table-cell;
+  text-align: right;
+  vertical-align: middle; }
+
+#kboard-review-custom-list .kboard-list-header .kboard-right select {
+  display: inline;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  height: 26px;
+  line-height: 26px;
+  font-size: 13px;
+  color: #565656;
+  border-radius: 0;
+  border: 1px solid #c2c2c2;
+  background: white;
+  vertical-align: middle;
+  box-shadow: none;
+  box-sizing: content-box;
+  text-indent: 0; }
+
+#kboard-review-custom-list .kboard-category.category-pc {
+  display: inline; }
+
+#kboard-review-custom-list .kboard-category.category-mobile {
+  display: none;
+  float: left;
+  padding-bottom: 15px;
+  width: 100%; }
+
+#kboard-review-custom-list .kboard-category.category-mobile select {
+  display: inline;
+  margin: 0 0 5px 0;
+  padding: 0;
+  width: 100%;
+  min-width: 100%;
+  height: 28px;
+  line-height: 28px;
+  font-size: 12px;
+  color: #565656;
+  border-radius: 0;
+  border: 1px solid #c2c2c2;
+  background: white;
+  vertical-align: middle;
+  box-shadow: none;
+  box-sizing: border-box;
+  text-indent: 0; }
+
+#kboard-review-custom-list .kboard-list {
+  float: left;
+  width: 100%;
+  background-color: white; }
+
+#kboard-review-custom-list .kboard-list table {
+  display: table;
+  table-layout: fixed;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  border: 0;
+  font-size: 16px;
+  border-collapse: collapse; }
+
+#kboard-review-custom-list .kboard-list table a {
+  color: #353535;
+  font-weight: normal;
+  text-decoration: none;
+  border: 0;
+  box-shadow: none;
+  font-size: 16px; }
+
+#kboard-review-custom-list .kboard-list table tr {
+  border: 0;
+  background-color: transparent;
+  transition-duration: 0.3s; }
+
+#kboard-review-custom-list .kboard-list table td {
+  padding: 12px 0;
+  height: auto;
+  text-align: center;
+  vertical-align: top;
+  font-size: 16px; }
+
+#kboard-review-custom-list .kboard-list table td.kboard-list-uid {
+  width: 82px; }
+
+#kboard-review-custom-list .kboard-list table td.kboard-list-category {
+  width: 100px; }
+
+#kboard-review-custom-list .kboard-list table td.kboard-list-title {
+  padding-right: 5px;
+  width: auto; }
+
+#kboard-review-custom-list .kboard-list table td.kboard-list-status {
+  width: 78px; }
+
+#kboard-review-custom-list .kboard-list table td.kboard-list-user {
+  width: 88px; }
+
+#kboard-review-custom-list .kboard-list table td.kboard-list-date {
+  width: 108px; }
+
+#kboard-review-custom-list .kboard-list table td.kboard-list-vote {
+  display: none;
+  width: 55px; }
+
+#kboard-review-custom-list .kboard-list table td.kboard-list-view {
+  display: none;
+  width: 55px; }
+
+#kboard-review-custom-list .kboard-list thead {
+  background-color: transparent; }
+
+#kboard-review-custom-list .kboard-list thead tr td {
+  font-weight: normal;
+  color: #353535;
+  border: 0;
+  border-top: 2px solid #a1a1a1;
+  border-bottom: 1px solid #dddddd;
+  background-color: #f2f4f7; }
+
+#kboard-review-custom-list .kboard-list tbody tr td {
+  word-break: break-all;
+  border: 0;
+  border-bottom: 1px solid #dddddd; }
+
+#kboard-review-custom-list .kboard-list tbody tr:hover {
+  background-color: #f2f4f7; }
+
+#kboard-review-custom-list .kboard-list tbody tr.kboard-list-notice {
+  background-color: #f4f4f4; }
+
+#kboard-review-custom-list .kboard-list tbody tr.kboard-list-selected .kboard-review-custom-cut-strings {
+  font-weight: bold; }
+
+#kboard-review-custom-list .kboard-list tbody td.kboard-list-title {
+  text-align: left; }
+
+#kboard-review-custom-list .kboard-list tbody td.kboard-list-title img {
+  display: inline;
+  margin: 0;
+  width: auto;
+  height: auto;
+  vertical-align: middle;
+  max-width: 100%; }
+
+#kboard-review-custom-list .kboard-list tbody td.kboard-list-title img.kboard-icon-reply {
+  width: 16px !important;
+  height: 16px !important; }
+
+#kboard-review-custom-list .kboard-list tbody td.kboard-list-title img.kboard-icon-lock {
+  width: 16px !important;
+  height: 16px !important; }
+
+#kboard-review-custom-list .kboard-list tbody td.kboard-list-title .kboard-comments-count {
+  color: #13afbe; }
+
+#kboard-review-custom-list .kboard-list .kboard-mobile-category {
+  display: none; }
+
+#kboard-review-custom-list .kboard-list .kboard-mobile-status {
+  display: none;
+  margin-bottom: 10px; }
+
+#kboard-review-custom-list .kboard-list .kboard-mobile-contents {
+  display: none;
+  font-size: 12px;
+  color: #999999; }
+
+#kboard-review-custom-list .kboard-list .kboard-mobile-contents .contents-item {
+  display: inline;
+  margin: 0;
+  padding: 0; }
+
+#kboard-review-custom-list .kboard-list .kboard-mobile-contents .contents-separator {
+  display: inline;
+  margin: 0;
+  padding: 0 2px;
+  color: #bebebe; }
+
+#kboard-review-custom-list .kboard-pagination {
+  float: left;
+  padding: 15px 0;
+  width: 100%; }
+
+#kboard-review-custom-list .kboard-pagination .kboard-pagination-pages {
+  float: left;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  list-style: none;
+  text-align: center;
+  border: 0; }
+
+#kboard-review-custom-list .kboard-pagination .kboard-pagination-pages li {
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+  margin: 0;
+  padding: 0 1px;
+  background: none;
+  border: 0;
+  list-style: none; }
+
+#kboard-review-custom-list .kboard-pagination .kboard-pagination-pages li a {
+  display: block;
+  margin: 0;
+  padding: 0 11px;
+  height: 28px;
+  line-height: 28px;
+  font-size: 13px;
+  color: #999999;
+  text-decoration: none;
+  border: 0;
+  background-color: transparent;
+  box-shadow: none;
+  transition-duration: 0.3s; }
+
+#kboard-review-custom-list .kboard-pagination .kboard-pagination-pages li:hover a,
+#kboard-review-custom-list .kboard-pagination .kboard-pagination-pages li.active a {
+  border: 0;
+  color: black;
+  font-weight: bold;
+  text-decoration: underline; }
+
+#kboard-review-custom-list .kboard-pagination .kboard-pagination-pages li:before {
+  display: none; }
+
+#kboard-review-custom-list .kboard-pagination .kboard-pagination-pages li:after {
+  display: none; }
+
+#kboard-review-custom-list .kboard-search {
+  float: left;
+  padding-bottom: 15px;
+  width: 100%;
+  text-align: center; }
+
+#kboard-review-custom-list .kboard-search select {
+  display: inline;
+  margin: 0;
+  padding: 0 5px;
+  width: 100px;
+  min-width: 100px;
+  height: 26px;
+  font-size: 13px;
+  color: #565656;
+  border-radius: 0;
+  border: 1px solid #c2c2c2;
+  background: white;
+  line-height: 26px;
+  vertical-align: middle;
+  box-shadow: none;
+  box-sizing: content-box; }
+
+#kboard-review-custom-list .kboard-search input {
+  display: inline;
+  margin: 0;
+  padding: 0 5px;
+  width: 200px;
+  min-width: 200px;
+  height: 26px;
+  font-size: 13px;
+  color: #565656;
+  border-radius: 0;
+  border: 1px solid #c2c2c2;
+  background: white;
+  line-height: 26px;
+  vertical-align: middle;
+  box-shadow: none;
+  box-sizing: content-box; }
+
+#kboard-review-custom-list .kboard-control {
+  float: left;
+  padding-bottom: 15px;
+  width: 100%;
+  text-align: right; }
+
+#kboard-review-custom-editor {
+  overflow: hidden; }
+
+#kboard-review-custom-editor select {
+  display: inline;
+  margin: 0;
+  padding: 0 5px;
+  font-size: 13px;
+  width: 30%;
+  height: 28px;
+  line-height: 28px;
+  color: #666666;
+  border-radius: 0;
+  border: 1px solid #dcdcdc;
+  box-shadow: none;
+  background-color: transparent;
+  box-sizing: content-box;
+  vertical-align: top;
+  text-indent: 0; }
+
+#kboard-review-custom-editor input[type=text],
+#kboard-review-custom-editor input[type=email],
+#kboard-review-custom-editor input[type=number],
+#kboard-review-custom-editor input[type=date],
+#kboard-review-custom-editor input[type=password] {
+  display: inline;
+  margin: 0;
+  padding: 0 5px;
+  width: 30%;
+  height: 28px;
+  line-height: 28px;
+  font-size: 13px;
+  color: #666666;
+  border-radius: 0;
+  border: 1px solid #dcdcdc;
+  box-shadow: none;
+  background-color: transparent;
+  box-sizing: content-box;
+  vertical-align: top; }
+
+#kboard-review-custom-editor select:hover,
+#kboard-review-custom-editor input[type=text]:hover,
+#kboard-review-custom-editor input[type=email]:hover,
+#kboard-review-custom-editor input[type=number]:hover,
+#kboard-review-custom-editor input[type=date]:hover,
+#kboard-review-custom-editor input[type=password]:hover
+#kboard-review-custom-editor select:focus,
+#kboard-review-custom-editor input[type=text]:focus,
+#kboard-review-custom-editor input[type=email]:focus,
+#kboard-review-custom-editor input[type=number]:focus,
+#kboard-review-custom-editor input[type=date]:focus,
+#kboard-review-custom-editor input[type=password]:focus {
+  border: 1px solid #9e9e9e; }
+
+#kboard-review-custom-editor input[type=file] {
+  display: inline;
+  margin: 0;
+  padding: 0;
+  width: 30%;
+  font-size: 12px;
+  color: #666666;
+  border-radius: 0;
+  border: 0;
+  box-shadow: none;
+  background-color: transparent; }
+
+#kboard-review-custom-editor .kboard-attr-wrap {
+  display: table;
+  width: 100%; }
+
+#kboard-review-custom-editor .kboard-attr-row {
+  display: table-row; }
+
+#kboard-review-custom-editor .kboard-attr-row .attr-name {
+  display: table-cell;
+  padding: 5px 10px 5px 20px;
+  width: 120px;
+  line-height: 30px;
+  color: #545861;
+  font-size: 13px;
+  font-weight: bold;
+  background-color: #f5f5f5; }
+
+#kboard-review-custom-editor .kboard-attr-row .attr-name img {
+  display: inline;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  max-width: 100%;
+  vertical-align: middle; }
+
+#kboard-review-custom-editor .kboard-attr-row .attr-value {
+  display: table-cell;
+  margin-left: 150px;
+  padding: 5px 10px 5px 20px;
+  line-height: 30px;
+  text-align: left;
+  font-size: 13px;
+  background-color: white; }
+
+#kboard-review-custom-editor .kboard-attr-row .attr-value .attr-value-option {
+  display: inline;
+  padding-right: 20px;
+  width: auto;
+  cursor: pointer; }
+
+#kboard-review-custom-editor .kboard-attr-row .attr-value .attr-value-option input[type=checkbox] {
+  cursor: pointer; }
+
+#kboard-review-custom-editor .kboard-attr-row .attr-value .description {
+  color: #666666; }
+
+#kboard-review-custom-editor .kboard-attr-title input {
+  width: 100%;
+  *width: 70%;
+  box-sizing: border-box; }
+
+#kboard-review-custom-editor .kboard-confirm-row {
+  padding: 100px 0; }
+
+#kboard-review-custom-editor .kboard-content {
+  padding: 10px 0;
+  text-align: center;
+  background-color: white; }
+
+#kboard-review-custom-editor .kboard-content textarea {
+  display: inline;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  height: 250px;
+  font-size: 13px;
+  box-sizing: border-box;
+  vertical-align: middle; }
+
+#kboard-review-custom-editor .kboard-control {
+  padding: 15px 0; }
+
+#kboard-review-custom-editor .kboard-control .left {
+  position: static;
+  float: left; }
+
+#kboard-review-custom-editor .kboard-control .right {
+  position: static;
+  float: right;
+  width: 50%;
+  text-align: right; }
+
+#kboard-review-custom-document {
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+  margin: 0;
+  width: 100%; }
+
+#kboard-review-custom-document .kboard-document-wrap {
+  float: left;
+  width: 100%;
+  background-color: white; }
+
+#kboard-review-custom-document .kboard-detail {
+  font-size: 16px;
+  border-top: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+  background-color: #f5f5f5;
+  overflow: hidden; }
+
+#kboard-review-custom-document .kboard-detail .detail-attr {
+  float: left;
+  margin: 0;
+  padding: 12px 35px 12px 22px;
+  overflow: hidden; }
+
+#kboard-review-custom-document .kboard-detail .detail-attr .detail-name {
+  float: left;
+  min-width: 50px;
+  font-weight: bold;
+  color: #545861; }
+
+#kboard-review-custom-document .kboard-detail .detail-attr .detail-value {
+  float: left;
+  padding-left: 20px;
+  color: #545861; }
+
+#kboard-review-custom-document .kboard-detail .detail-attr .detail-value img {
+  vertical-align: middle; }
+
+#kboard-review-custom-document .kboard-detail .detail-title {
+  float: none; }
+
+#kboard-review-custom-document .kboard-content {
+  clear: both;
+  float: left;
+  width: 100%;
+  min-height: 200px; }
+
+#kboard-review-custom-document .kboard-content .content-view {
+  margin: 0;
+  padding: 22px;
+  word-break: break-all; }
+
+#kboard-review-custom-document .kboard-content .content-view img {
+  display: inline;
+  margin: 0;
+  width: auto;
+  height: auto;
+  vertical-align: middle;
+  max-width: 100%; }
+
+#kboard-review-custom-document .kboard-content .content-view p {
+  margin: 0 0 0.75em; }
+
+#kboard-review-custom-document .kboard-content .content-view p:last-child {
+  margin: 0; }
+
+#kboard-review-custom-document .kboard-content .content-view .thumbnail-area {
+  text-align: center; }
+
+#kboard-review-custom-document .kboard-content .content-view .aligncenter {
+  display: block;
+  margin-right: auto;
+  margin-left: auto; }
+
+#kboard-review-custom-document .kboard-content .content-view .alignright {
+  float: right; }
+
+#kboard-review-custom-document .kboard-content .content-view .alignleft {
+  float: left; }
+
+#kboard-review-custom-document .kboard-document-action {
+  padding: 0 22px 5px 22px;
+  overflow: hidden;
+  line-height: 1; }
+
+#kboard-review-custom-document .kboard-document-action .left {
+  position: static;
+  float: left; }
+
+#kboard-review-custom-document .kboard-document-action .right {
+  position: static;
+  float: right;
+  text-align: right; }
+
+#kboard-review-custom-document .kboard-attach {
+  clear: both;
+  margin: 0 22px;
+  padding: 5px 0 15px 0;
+  font-size: 12px;
+  overflow: hidden;
+  line-height: 1;
+  border-top: 1px dashed #ededed; }
+
+#kboard-review-custom-document .kboard-attach-title {
+  padding: 10px 0 15px 0;
+  font-size: 13px;
+  font-weight: bold; }
+
+#kboard-review-custom-document .kboard-button-action {
+  margin: 0 0 5px 0;
+  padding: 4px 5px;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 12px;
+  text-align: left;
+  border: 1px solid #ededed;
+  background: none;
+  background-color: transparent;
+  border-radius: 2px;
+  letter-spacing: normal;
+  cursor: pointer;
+  vertical-align: middle;
+  text-shadow: none;
+  box-shadow: none; }
+
+#kboard-review-custom-document .kboard-button-action span {
+  position: static;
+  display: inline;
+  margin: 0;
+  padding: 0;
+  font-size: 12px; }
+
+#kboard-review-custom-document .kboard-button-like {
+  color: #ff5959; }
+
+#kboard-review-custom-document .kboard-button-unlike {
+  color: #3d62aa; }
+
+#kboard-review-custom-document .kboard-button-print {
+  color: gray; }
+
+#kboard-review-custom-document .kboard-button-download {
+  color: gray; }
+
+#kboard-review-custom-document .kboard-comments-area {
+  float: left;
+  width: 100%; }
+
+#kboard-review-custom-document .kboard-document-navi {
+  float: left;
+  padding-top: 15px;
+  width: 100%; }
+
+#kboard-review-custom-document .kboard-document-navi a {
+  display: block;
+  text-decoration: none;
+  border: 0;
+  font-size: 13px;
+  line-height: 20px;
+  box-shadow: none;
+  color: #545861;
+  transition-duration: .3s; }
+
+#kboard-review-custom-document .kboard-document-navi .navi-document-title {
+  display: block; }
+
+#kboard-review-custom-document .kboard-document-navi .navi-arrow {
+  position: absolute;
+  display: block; }
+
+#kboard-review-custom-document .kboard-document-navi .kboard-prev-document {
+  position: relative;
+  float: left;
+  width: 45%; }
+
+#kboard-review-custom-document .kboard-document-navi .kboard-prev-document .navi-document-title {
+  padding-left: 15px; }
+
+#kboard-review-custom-document .kboard-document-navi .kboard-prev-document .navi-arrow {
+  left: 0;
+  top: 0; }
+
+#kboard-review-custom-document .kboard-document-navi .kboard-prev-document:hover a {
+  color: black; }
+
+#kboard-review-custom-document .kboard-document-navi .kboard-next-document {
+  position: relative;
+  float: right;
+  width: 45%;
+  text-align: right; }
+
+#kboard-review-custom-document .kboard-document-navi .kboard-next-document .navi-document-title {
+  padding-right: 15px; }
+
+#kboard-review-custom-document .kboard-document-navi .kboard-next-document .navi-arrow {
+  right: 0;
+  top: 0; }
+
+#kboard-review-custom-document .kboard-document-navi .kboard-next-document:hover a {
+  color: black; }
+
+#kboard-review-custom-document .kboard-control {
+  float: left;
+  padding: 15px 0;
+  width: 100%; }
+
+#kboard-review-custom-document .kboard-control .left {
+  position: static;
+  float: left; }
+
+#kboard-review-custom-document .kboard-control .right {
+  position: static;
+  float: right;
+  text-align: right; }
+
+#kboard-review-custom-latest table {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid #f1f1f1; }
+
+#kboard-review-custom-latest table tr {
+  padding: 0;
+  border: 0; }
+
+#kboard-review-custom-latest table th {
+  padding: 5px 0;
+  height: auto;
+  border: 0;
+  text-align: center; }
+
+#kboard-review-custom-latest table td {
+  padding: 5px 0;
+  height: auto;
+  border: 0;
+  border-top: 1px solid #f1f1f1; }
+
+#kboard-review-custom-latest table .kboard-latest-title {
+  padding-left: 5px;
+  font-size: 13px; }
+
+#kboard-review-custom-latest table .kboard-latest-title a {
+  text-decoration: none;
+  box-shadow: none; }
+
+#kboard-review-custom-latest table .kboard-latest-title img {
+  display: inline;
+  margin: 0;
+  width: auto;
+  height: auto;
+  vertical-align: middle;
+  max-width: 100%; }
+
+#kboard-review-custom-latest table .kboard-latest-title img.kboard-icon-lock {
+  width: 16px !important;
+  height: 16px !important; }
+
+#kboard-review-custom-latest table .kboard-latest-date {
+  width: 80px;
+  text-align: center;
+  font-size: 13px; }
+
+@media screen and (max-width: 600px) {
+  #kboard-review-custom-list .kboard-category.category-mobile {
+    display: block; }
+
+  #kboard-review-custom-list .kboard-category.category-pc {
+    display: none; }
+
+  #kboard-review-custom-list .kboard-list table {
+    border-top: 2px solid #a1a1a1; }
+
+  #kboard-review-custom-list .kboard-list table thead {
+    display: none; }
+
+  #kboard-review-custom-list .kboard-list table td.kboard-list-title {
+    padding: 10px 5px; }
+
+  #kboard-review-custom-list .kboard-list table td.kboard-list-title .kboard-review-custom-cut-strings {
+    margin-bottom: 10px;
+    white-space: normal;
+    font-size: 15px;
+    line-height: 23px; }
+
+  #kboard-review-custom-list .kboard-list table td.kboard-list-uid,
+  #kboard-review-custom-list .kboard-list table td.kboard-list-category,
+  #kboard-review-custom-list .kboard-list table td.kboard-list-status,
+  #kboard-review-custom-list .kboard-list table td.kboard-list-user,
+  #kboard-review-custom-list .kboard-list table td.kboard-list-date,
+  #kboard-review-custom-list .kboard-list table td.kboard-list-vote,
+  #kboard-review-custom-list .kboard-list table td.kboard-list-view {
+    display: none; }
+
+  #kboard-review-custom-list .kboard-list .kboard-mobile-category {
+    display: inline; }
+
+  #kboard-review-custom-list .kboard-list .kboard-mobile-status {
+    display: block; }
+
+  #kboard-review-custom-list .kboard-list .kboard-mobile-contents {
+    display: block; }
+
+  #kboard-review-custom-list .kboard-pagination .kboard-pagination-pages li {
+    display: none; }
+
+  #kboard-review-custom-list .kboard-pagination .kboard-pagination-pages li.first-page,
+  #kboard-review-custom-list .kboard-pagination .kboard-pagination-pages li.last-page,
+  #kboard-review-custom-list .kboard-pagination .kboard-pagination-pages li.prev-page,
+  #kboard-review-custom-list .kboard-pagination .kboard-pagination-pages li.next-page,
+  #kboard-review-custom-list .kboard-pagination .kboard-pagination-pages li.active {
+    display: inline-block; }
+
+  #kboard-review-custom-list .kboard-pagination .kboard-pagination-pages li.prev-page a,
+  #kboard-review-custom-list .kboard-pagination .kboard-pagination-pages li.next-page a {
+    padding: 0 18px; }
+
+  #kboard-review-custom-list .kboard-search select {
+    float: left;
+    margin-right: 1%;
+    width: 29%;
+    min-width: 29%;
+    height: 28px;
+    line-height: 28px;
+    box-sizing: border-box; }
+
+  #kboard-review-custom-list .kboard-search input {
+    float: left;
+    margin-right: 1%;
+    width: 49%;
+    min-width: 49%;
+    height: 28px;
+    line-height: 28px;
+    box-sizing: border-box; }
+
+  #kboard-review-custom-list .kboard-search button {
+    float: left;
+    width: 20%;
+    min-width: 20%;
+    box-sizing: border-box; }
+
+  #kboard-review-custom-editor select,
+  #kboard-review-custom-editor input[type=text],
+  #kboard-review-custom-editor input[type=email],
+  #kboard-review-custom-editor input[type=number],
+  #kboard-review-custom-editor input[type=date],
+  #kboard-review-custom-editor input[type=password],
+  #kboard-review-custom-editor input[type=file] {
+    width: 100%;
+    box-sizing: border-box; }
+
+  #kboard-review-custom-editor .kboard-attr-wrap {
+    display: block;
+    width: auto; }
+
+  #kboard-review-custom-editor .kboard-attr-row {
+    display: block;
+    padding: 10px 0; }
+
+  #kboard-review-custom-editor .kboard-attr-row .attr-name {
+    display: block;
+    padding: 0;
+    font-size: 14px;
+    background-color: white; }
+
+  #kboard-review-custom-editor .kboard-attr-row .attr-value {
+    display: block;
+    margin: 0;
+    padding: 0; }
+
+  #kboard-review-custom-document .kboard-detail .detail-attr {
+    clear: both;
+    padding: 5px 5px; }
+
+  #kboard-review-custom-document .kboard-content .content-view {
+    padding: 10px 5px; }
+
+  #kboard-review-custom-document .kboard-document-action {
+    padding: 10px 5px 5px 5px; }
+
+  #kboard-review-custom-document .kboard-attach {
+    margin: 0 5px; }
+
+  #kboard-review-custom-document .kboard-document-navi .kboard-prev-document {
+    width: 100%; }
+
+  #kboard-review-custom-document .kboard-document-navi .kboard-next-document {
+    margin-top: 10px;
+    float: left;
+    width: 100%;
+    text-align: left; }
+
+  .kboard-review-custom-status-wait,
+  .kboard-review-custom-status-complete {
+    margin-top: 5px; } }
+/**
+ * Add Style
+ */
+#kboard-review-custom-list,
+#kboard-review-custom-editor,
+#kboard-review-custom-document {
+  position: relative;
+  color: #353535;
+  font-family: 'Noto Sans Korean Regular', sans-serif;
+  font-weight: 400;
+  line-height: 25px; }
+
+#kboard-review-custom-list {
+  padding-bottom: 6px; }
+
+#kboard-review-custom-list .kboard-list tbody tr:last-child td {
+  border-color: #a1a1a1; }
+#kboard-review-custom-list .kboard-list tbody tr.open {
+  background-color: #f2f4f7; }
+#kboard-review-custom-list .kboard-list tbody tr.kboard-list-reply {
+  display: none;
+  background-color: #fff0ca; }
+  #kboard-review-custom-list .kboard-list tbody tr.kboard-list-reply .kboard-list-uid {
+    background: url(../images/arrow-dotted.png) center 14px no-repeat; }
+
+#kboard-review-custom-list .kboard-list table tbody td {
+  font-size: 15px; }
+
+#kboard-review-custom-list .content-view {
+  display: none;
+  margin-top: 15px; }
+
+#kboard-review-custom-list .reply-view {
+  font-size: 16px; }
+
+/* pagination */
+#kboard-review-custom-list .kboard-pagination {
+  padding: 34px 0 0 0; }
+
+#kboard-review-custom-list .kboard-pagination .kboard-pagination-pages li {
+  vertical-align: top; }
+
+#kboard-review-custom-list .kboard-pagination .kboard-pagination-pages li a {
+  padding: 0 10px;
+  color: #676767;
+  font-family: 'Noto Sans Korean Medium', sans-serif;
+  font-weight: 500;
+  font-size: 16px; }
+
+#kboard-review-custom-list .kboard-pagination .kboard-pagination-pages li a:hover {
+  color: #676767;
+  font-weight: normal; }
+
+#kboard-review-custom-list .kboard-pagination .kboard-pagination-pages li.active a {
+  color: #ff7521;
+  text-decoration: none; }
+
+#kboard-review-custom-list .kboard-pagination .kboard-pagination-pages li.first-page a,
+#kboard-review-custom-list .kboard-pagination .kboard-pagination-pages li.last-page a,
+#kboard-review-custom-list .kboard-pagination .kboard-pagination-pages li.prev-page a,
+#kboard-review-custom-list .kboard-pagination .kboard-pagination-pages li.next-page a {
+  overflow: hidden;
+  text-indent: 100%;
+  width: 33px;
+  height: 28px; }
+
+#kboard-review-custom-list .kboard-pagination .kboard-pagination-pages li.first-page a {
+  background: url(../images/arrow-double-left@2x.png) center 10px no-repeat;
+  background-size: 15px 11px; }
+
+#kboard-review-custom-list .kboard-pagination .kboard-pagination-pages li.last-page a {
+  background: url(../images/arrow-double-right@2x.png) center 10px no-repeat;
+  background-size: 15px 11px; }
+
+#kboard-review-custom-list .kboard-pagination .kboard-pagination-pages li.prev-page a {
+  background: url(../images/arrow-left@2x.png) center 10px no-repeat;
+  background-size: 9px 11px; }
+
+#kboard-review-custom-list .kboard-pagination .kboard-pagination-pages li.next-page a {
+  background: url(../images/arrow-right@2x.png) center 10px no-repeat;
+  background-size: 9px 11px; }
+
+/* Control */
+#kboard-review-custom-list .kboard-control {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: inline-block;
+  padding-bottom: 0;
+  width: auto; }
+  @media screen and (max-width: 767px) {
+    #kboard-review-custom-list .kboard-control {
+      position: static;
+      padding-top: 20px;
+      width: 100%;
+      text-align: right; } }
+
+/*# sourceMappingURL=kboard-selvi-style.css.map */
+
+
+ /**
+ * Selvi Kboard Edit Style =================================
+ */
+ 
+/**
+ * Layout Helper
+ */
+.clearfix:before, .flex-row:before, .wrapper header .member-info .member-menu:before, .btn-group:before, .event-flag-group:before, .event-item ul:before, .event-item .info dl:before, .pop-univ .pop-content .controls:before, .form-list .field-mobile dd:before, .event-detail-header .info-list:before, .event-board:before,
+.clearfix:after,
+.flex-row:after,
+.wrapper header .member-info .member-menu:after,
+.btn-group:after,
+.event-flag-group:after,
+.event-item ul:after,
+.event-item .info dl:after,
+.pop-univ .pop-content .controls:after,
+.form-list .field-mobile dd:after,
+.event-detail-header .info-list:after,
+.event-board:after {
+  content: "";
+  display: table; }
+
+.clearfix:after, .flex-row:after, .wrapper header .member-info .member-menu:after, .btn-group:after, .event-flag-group:after, .event-item ul:after, .event-item .info dl:after, .pop-univ .pop-content .controls:after, .form-list .field-mobile dd:after, .event-detail-header .info-list:after, .event-board:after {
+  clear: both; }
+
+.clearfix, .flex-row, .wrapper header .member-info .member-menu, .btn-group, .event-flag-group, .event-item ul, .event-item .info dl, .pop-univ .pop-content .controls, .form-list .field-mobile dd, .event-detail-header .info-list, .event-board {
+  zoom: 1;
+  /* ie 6/7 */ }
+
+/* 12 Column Grid */
+.flex-row > * {
+  float: left; }
+
+.col-1 {
+  width: 8.33333333333333%; }
+
+.col-2 {
+  width: 16.66666666666667%; }
+
+.col-4 {
+  width: 33.33333333333333%; }
+
+.col-5 {
+  width: 41.66666666666667%; }
+
+.col-6 {
+  width: 50%; }
+
+.col-7 {
+  width: 58.33333333333333%; }
+
+.col-8 {
+  width: 66.66666666666667%; }
+
+.col-9 {
+  width: 75%; }
+
+.col-10 {
+  width: 83.33333333333333%; }
+
+.col-11 {
+  width: 91.66666666666667%; }
+
+.col-12 {
+  width: 100%; }
+ 
+ /**
+ * Universal Modal Popup Style
+ */
+.mfp-bg {
+  background-color: transparent; }
+
+.mfp-wrap {
+  min-width: 320px; }
+
+.pop-univ {
+  position: relative;
+  padding: 0 3.125em 0.6875em 3.125em;
+  margin: 0 auto;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 3px 2px 7px 0px rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+  text-align: center; }
+  .pop-univ .pop-header {
+    margin-top: 0;
+    margin-bottom: 0.36957em;
+    padding-top: 1.04348em;
+    font-family: 'KHNPHan Dotum Regular', sans-serif;
+    font-size: 2.875em;
+    word-break: keep-all; }
+  .pop-univ .pop-content {
+    padding-bottom: 2.4375em; }
+    .pop-univ .pop-content .content {
+      font-size: 1.125em;
+      line-height: 1.66667em;
+      word-break: keep-all; }
+      .pop-univ .pop-content .content em {
+        color: #ff7521;
+        font-style: normal; }
+    .pop-univ .pop-content .controls {
+      margin-top: 2.5em; }
+      .pop-univ .pop-content .controls.btn-2 {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 306px; }
+        .pop-univ .pop-content .controls.btn-2 .btn-univ {
+          float: left;
+          width: 48.36601%;
+          min-width: auto; }
+          .pop-univ .pop-content .controls.btn-2 .btn-univ + .btn-univ {
+            margin-left: 3.26797%; }
+  @media screen and (max-width: 767px) {
+    .pop-univ {
+      padding-left: 30px;
+      padding-right: 30px;
+      font-size: 14px; } }
+
+.pop-confirm {
+  max-width: 27.5em; }
+  .pop-confirm .inner {
+    padding: 0 1.0625em; }
+  @media screen and (max-width: 767px) {
+    .pop-confirm .inner {
+      padding: 0; } }
+
+.pop-alert {
+  padding: 1.6875em;
+  max-width: 27.5em; }
+  .pop-alert .mfp-close {
+    top: -5px;
+    right: -5px; }
+  .pop-alert .inner {
+    background-color: #e3e8f1; }
+  .pop-alert .pop-content {
+    padding-left: 20px;
+    padding-right: 20px; }
+	
+/**
+ * Form Style
+ */
+button, input, select, textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  border: none;
+  box-shadow: none;
+  box-sizing: border-box;
+  outline: none;
+  /* Placeholder Style for IE */
+  /* Basic Style */
+  color: #555555;
+  font-family: 'Noto Sans Korean Regular', sans-serif;
+  font-weight: 400;
+  font-size: 1em;
+  line-height: 1; }
+  button:-ms-input-placeholder, input:-ms-input-placeholder, select:-ms-input-placeholder, textarea:-ms-input-placeholder {
+    color: #555555 !important; }
+
+.input-text {
+  padding-top: 0.27778em;
+  padding-bottom: 0.33333em;
+  padding-left: 0.27778em;
+  border: 2px solid #dddddd;
+  box-sizing: border-box;
+  line-height: 1.5em; }
+
+.textarea {
+  display: block;
+  padding-left: 0.27778em;
+  border: 2px solid #dddddd;
+  box-sizing: border-box;
+  line-height: 1.5em;
+  overflow: auto;
+  resize: none; }
+
+.check-form {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  
+  /* Radio Button */
+  /* Checkbox */ }
+  .check-form input[type=radio],
+  .check-form input[type=checkbox] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0; }
+  .check-form label {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 0;
+    font-family: 'Noto Sans Korean Regular', sans-serif;
+    font-weight: 400;
+    line-height: 1em; }
+  .check-form input[type=checkbox] + label:before {
+    content: ' ';
+    display: inline-block;
+    margin-right: 10px;
+    width: 15px;
+    height: 14px;
+    background-color: #fff;
+    border: 1px solid #7f7f7f;
+    box-sizing: border-box; }
+  .check-form input[type=checkbox]:checked + label:before {
+    background: #fff url(../images/checkmark.svg) center center no-repeat;
+    background-size: contain; }
+	
+/**
+ * Form Frame
+ */
+.form-list {
+  padding-left: 17px;
+  font-family: 'Noto Sans Korean Regular', sans-serif;
+  font-weight: 400;
+  font-size: 1.125em;
+  text-align: left; }
+  .form-list dl {
+    display: table;
+    width: 100%; }
+    .form-list dl + dl {
+      padding-top: 0.55556em; }
+    .form-list dl dt, .form-list dl dd {
+      display: table-cell;
+      vertical-align: middle; }
+    .form-list dl dt {
+      width: 118px; }
+    .form-list dl dd {
+      width: auto; }
+  .form-list .field-mobile dd input {
+    float: left;
+    width: 29.70027%; }
+  .form-list .field-mobile dd .dash {
+    float: left;
+    display: inline-block;
+    width: 5.44959%;
+    line-height: 2.33333em;
+    text-align: center;
+    vertical-align: top; }
+  .form-list .field-addr input + input {
+    margin-top: 0.55556em; }
+  @media screen and (max-width: 767px) {
+    .form-list {
+      padding-left: 0; }
+      .form-list dl {
+        display: block; }
+        .form-list dl + dl {
+          padding-top: 15px; }
+        .form-list dl dt, .form-list dl dd {
+          display: block; }
+        .form-list dl dt {
+          margin-bottom: 7px; }
+      .form-list .input-text {
+        width: 100%; }
+      .form-list .field-mobile .col-6 {
+        width: 100%; } }
+
+/**
+ * Form - input file
+ * [HTML]
+	<div class="filebox">
+		<input class="input-file-name" type="text" disabled="disabled">
+ 	  <label for="attach">Uploads</label>
+ 		  <input class="hidden-input-file" type="file" id="attach">
+	</div>
+ * [JS]
+ * ui.filebox(); -> 'selvi-ui.js'
+ */
+.filebox {
+  position: relative;
+  padding-right: 5.33333em; }
+  .filebox label {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    width: 5.6875em;
+    background-color: #ddd;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-size: 0.88889em;
+    line-height: 46px; /*eley 42->46*/
+    text-align: center; }
+  .filebox input[type=text]:disabled {
+    width: 100%;
+    background: #fff;
+    display: block !important; }
+  .filebox input[type="file"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0; }
+  @media screen and (max-width: 767px) {
+    .filebox label {
+      line-height: 40.81px; } } /*eley 36.6->40.81*/
+	  
+/**
+ * Button Style
+ */
+/* clear button style */
+button, input[type=button], input[type=submit], a[role=button] {
+  /* reset */
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-size: 1em;
+  outline: none; }
+
+button.btn-univ, input[type="button"].btn-univ, input[type="submit"].btn-univ {
+  display: inline-block;
+  padding: 15px 15px 16px 15px;
+  min-width: 6.72727em;
+  background-color: #ff7521;
+  color: #fff;
+  font-family: 'Noto Sans Korean Medium', sans-serif;
+  font-weight: 500;
+  font-size: 1.375em; }
+  button.btn-univ:disabled, input[type="button"].btn-univ:disabled, input[type="submit"].btn-univ:disabled {
+    background-color: #bcc1c7; }
+  button.btn-univ.gray, input[type="button"].btn-univ.gray, input[type="submit"].btn-univ.gray {
+    background-color: #bcc1c7; }
+
+.btn-group .btn {
+  float: left; }
+  .btn-group .btn + .btn {
+    border-left: 0; }
+
+button.btn-apply-facebook, input[type="button"].btn-apply-facebook, input[type="submit"].btn-apply-facebook {
+  display: inline-block;
+  padding: 15px 0;
+  max-width: 294px;
+  width: 100%;
+  background-color: #4c73c4;
+  border-radius: 2px;
+  color: #fff;
+  font-family: 'Noto Sans Korean Black', sans-serif;
+  font-weight: 900;
+  font-size: 21px;
+  line-height: 1.3; }
+  button.btn-apply-facebook:disabled, input[type="button"].btn-apply-facebook:disabled, input[type="submit"].btn-apply-facebook:disabled {
+    background-color: #bcc1c7; }
+	
+/**
+ * Write Board Popup + : eley
+ */
+.pop-write-board {
+  max-width: 40em; }
+  .pop-write-board .pop-content .content {
+    font-size: 1em; }
+  .pop-write-board .form-list {
+    padding-top: 10px;
+    padding-left: 0; }
+    .pop-write-board .form-list dl dt {
+      width: 77px; }
+    .pop-write-board .form-list .field-msg .textarea {
+      height: 13.22222em; }
+  @media screen and (max-width: 767px) {
+    .pop-write-board {
+      padding-left: 20px;
+      padding-right: 20px; }
+      .pop-write-board .form-list .field-msg .textarea {
+        height: 180px; } }
+	
+/*# sourceMappingURL=custom-style.css.map */
+
+/* pop -> contents : eley*/
+.pop-write-board {
+    max-width: 100%;
+	margin-left: 0px;
+    margin-right: 0px;
+}
+

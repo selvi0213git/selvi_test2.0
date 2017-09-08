@@ -1,0 +1,164 @@
+/**
+ * Selvi Header
+ */
+$header-bg-color: #3e3952;
+
+.wrapper {
+	header {
+		padding-top: 25px;
+		padding-bottom: 25px;
+		background-color: $header-bg-color;
+
+		.logo {
+			width: 40%;
+
+			a {
+				display: block;
+				
+				img {
+					@extend .flex-img;
+				}
+			}
+		}
+		.header-holder {
+			width: 60%;
+		}
+
+		.btn-login {
+			display: inline-block;
+			margin-bottom: em(14, 15);
+			width: em(69, 15);
+			background-color: $color-light-purple;
+			border-radius: 2px;
+			color: #fff;
+			@include font-medium;
+			font-size: em(15);
+			line-height: em(28, 15);
+			text-align: center;
+
+			&:hover {
+				text-decoration: none;
+			}
+		}
+
+		.member-info {
+			display: inline-block;
+			margin-bottom: em(14, 15);
+			font-size: em(15);
+			line-height: em(28, 15);
+
+			.greeting {
+				display: inline-block;
+				color: $color-light-blue;
+				vertical-align: middle;
+			}
+
+			.member-menu {
+				@extend .clearfix;
+				display: inline-block;
+				margin-left: 4px;
+				vertical-align: middle;
+
+				li {
+					float: left;
+
+					& + li {
+						@include add-divider(#9f9ca9);
+					}
+
+					&:last-child {
+						a {
+							padding-right: 0;
+						}
+					}
+				}
+
+				a {
+					padding: 0 8px;
+					color: #fff;
+				}
+			}
+		}//member-info
+
+		nav {
+
+			& > ul {
+				& > li {
+					padding: 6px 0;
+
+					&:first-child a {
+						padding-left: 0;
+					}
+					&:last-child a {
+						padding-right: 0;
+					}
+					
+					& + li {
+						a {
+							@include add-divider(#9f9ca9, 2px, 16px);
+							@include responsive(medium) {
+								&::before {
+									display: none;
+								}
+							}
+						}//a
+					}//li+li
+				}
+			}
+			
+			ul {
+				margin-right: 0;
+
+				li {
+					margin: 0;
+
+					a {
+						display: block;
+						padding-left: 13px;
+						padding-right: 11px;
+						color: #fff;
+						@include font-han-regular;
+						font-size: 18px;
+
+						&:hover {
+							color: #fff;
+						}
+					}//a
+				}//li
+			}//ul
+		}//nav
+
+		.hamburger {
+			// top: 11px;
+
+			.hamburger-inner {
+				background-color: #fff;
+				&::before,
+				&::after {
+					background-color: #fff !important;
+				}
+			}
+		}
+
+		@include responsive(medium) {
+			.header-holder {
+				// padding-bottom: 11px;
+			}
+		}//medium
+
+		@include responsive($width-small-medium) {
+			.member-info {
+				line-height: 1.6;
+
+				.greeting {
+					display: block;
+				}
+			}
+		}
+
+		@include responsive(small) {
+			padding-top: 14px;
+			padding-bottom: 14px;
+		}
+	}//header
+}//wrapper

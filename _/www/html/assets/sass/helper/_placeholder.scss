@@ -1,0 +1,26 @@
+//baic common styles
+%button {
+	@include inline-block;
+	cursor: pointer;
+	text-align: center;
+}
+
+%icon {
+	@include inline-block;
+	background: {
+		position: 0 0;
+		repeat: no-repeat;
+		size: cover;
+	}
+	vertical-align: middle;
+}
+
+%table-basic-style {
+	width: 100%;
+	border-top: 2px solid #a1a1a1;
+	border-bottom: 1px solid #a1a1a1;
+}
+
+%table-data-num {
+	font-size: 15px;
+}

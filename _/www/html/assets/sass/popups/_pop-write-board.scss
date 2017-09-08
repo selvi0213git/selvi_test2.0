@@ -1,0 +1,40 @@
+/**
+ * Write Board Popup
+ */
+.pop-write-board {
+	max-width: em(640);
+	
+	.pop-content {
+		.content {
+			font-size: em(16);
+		}
+	}
+
+	.form-list {
+		padding-top: 10px;
+		padding-left: 0;
+
+		dl dt {
+			width: 77px;
+		}
+
+		.field-msg {
+			.textarea {
+				height: em(238, 18);
+			}
+		}
+	}
+
+	@include responsive($width-small-medium) {
+		padding-left: 20px;
+		padding-right: 20px;
+
+		.form-list {
+			.field-msg {
+				.textarea {
+					height: 180px;
+				}
+			}
+		}
+	}
+}//pop-write-board

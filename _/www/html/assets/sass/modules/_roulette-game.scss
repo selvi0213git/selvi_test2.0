@@ -1,0 +1,59 @@
+/**
+ * Roulette Game
+ */
+.pop-roulette {
+	max-width: 600px;
+
+	.pop-content {
+		padding-bottom: 0;
+	}
+}
+
+.roulette-game {
+	position: relative;
+	margin: 0 auto;
+	max-width: 434px;
+	font-size: 16px;
+
+	.wheel {
+		position: absolute;
+		top: per(51, 559);
+		left: 0;
+		width: 100%;
+		height: per(434, 559);
+
+		canvas {
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	.roulette-controls {
+		position: absolute;
+		top: per(230, 559);
+		left: per(134, 434);
+		width: per(166, 434);
+		height: per(77, 559);
+
+		.btn-start {
+			background-color: #000;
+			color: #fff;
+			@include font-bold;
+			font-size: em(33);
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	@include responsive(600px) {
+		.roulette-controls {
+			font-size: 14px;
+		}
+	}
+
+	@include responsive(420px) {
+		.roulette-controls {
+			font-size: 12px;
+		}
+	}
+}//roulette-game

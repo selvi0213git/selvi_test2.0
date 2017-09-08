@@ -1,0 +1,174 @@
+/**
+ * Selvi Event Item
+ */
+.event-item {
+	padding-bottom: em(30);
+
+	.inner {
+		display: block;
+		background-color: #ffffff;
+		box-shadow: 0 2px 1px 0 rgba(#bfbec1, 0.43); 
+	}
+
+	ul {
+		@extend .clearfix;
+
+		li {
+			float: left;
+		}
+	}
+
+	.info {
+		@include font-bold;
+
+		.row1 {
+			background-color: #e0e4ea;
+		}
+		.row2 {
+			background-color: #fff;
+			
+			li {
+				padding-top: 9px;
+				padding-bottom: 10px;
+				font-size: 14px;
+			}
+
+			li + li {
+				@include add-divider(#bfbec1);
+			}
+		}
+
+		.flags {
+			width: per(92, 263);
+		}
+
+		.time {
+			float: right;
+			padding-right: 12px;
+			width: per(171, 263);
+			box-sizing: border-box;
+			font-size: em(15);
+			line-height: 40px;
+			text-align: right;
+		}
+
+		.closed {
+			background-color: #bcc1c7;
+			color: #fff;
+			font-size: 15px;
+			line-height: 40px;
+			width: 100%;
+			text-align: center;
+		}
+
+		dl {
+			@extend .clearfix;
+			padding-left: 9px;
+			padding-right: 12px;
+			line-height: 1.4;
+
+			dt {
+				float: left;
+				box-sizing: border-box;
+				text-align: left;
+			}
+			dd {
+				float: right;
+				box-sizing: border-box;
+				text-align: right;
+
+			}
+
+			.value {
+				color: $color-orange;
+			}
+
+		}//dl
+
+		.row2.break-line {
+			li {
+				float: none;
+				width: 100%;
+
+				&:first-child {
+					padding-bottom: 0;
+				}
+				&:last-child {
+					padding-top: 0;
+					
+					&::before {
+						display: none;
+					}
+				}
+			}
+
+			dl {
+				dt {
+					float: left;
+					
+				}
+				dd {
+					float: right;
+					
+				}
+			}
+		}
+	}//info
+
+	.title {
+		padding-top: em(20);
+		padding-bottom: em(25);
+		padding-left: em(18);
+		padding-right: em(18);
+
+		.cat {
+			margin-bottom: 10px;
+			color: #999999;
+			font-size: 13px;
+		}
+		.tit {
+			display: block;
+			min-height: 46px;
+			@include font-bold;
+			font-size: 19px;
+			line-height: per(24, 19);
+		}
+	}//title
+}//event-item
+
+@media screen and (max-width: 1200px) and (min-width: 992px) {
+	.event-item {
+		.info {
+			font-size: 14px;
+
+			.row2 {
+				li {
+					padding-top: 6px;
+					padding-bottom: 6px;
+				}
+
+				li + li {
+					&:before {
+						margin-top: -15px;
+						height: 30px;
+					}
+				}
+			}
+
+			.time {
+				padding-right: 8px;
+			}
+
+			dl {
+				dt {
+					float: none;
+					
+				}
+				dd {
+					float: none;
+					text-align: left;
+				}
+			}
+		}//info
+	}//event-item
+}//medium-large

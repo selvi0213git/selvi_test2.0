@@ -1,0 +1,88 @@
+/**
+ * Utils =================================
+ */
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+/**
+ * Layout Helper
+ */
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.clearfix {
+  zoom: 1; /* ie 6/7 */
+}
+
+/* 12 Column Grid */
+.flex-row {
+  @extend .clearfix;
+
+  & > * {
+    float: left;
+  }
+}
+
+.col-1 {
+  width: 8.33333333333333%;
+}
+.col-2 {
+  width: 16.66666666666667%;
+}
+.col-4 {
+  width: 33.33333333333333%;
+}
+.col-5 {
+  width: 41.66666666666667%;
+}
+.col-6 {
+  width: 50%;
+}
+.col-7 {
+  width: 58.33333333333333%;
+}
+.col-8 {
+  width: 66.66666666666667%;
+}
+.col-9 {
+  width: 75%;
+}
+.col-10 {
+  width: 83.33333333333333%;
+}
+.col-11 {
+  width: 91.66666666666667%;
+}
+.col-12 {
+  width: 100%;
+}
+
+.flex-img {
+  display: block;
+  max-width: 100%;
+}
+
+.dim-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 600px;//set to body.height
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 99999;
+}

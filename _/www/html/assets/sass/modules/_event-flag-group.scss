@@ -1,0 +1,38 @@
+/**
+ * Event Flag Group
+ */
+.event-flag-group {
+	@extend .clearfix;
+	font-size: 16px;
+
+	.event-flag {
+		float: left;
+	}
+
+	&.flex {
+		.event-flag {
+			padding: 0;
+		}		
+	}
+}
+
+.event-flag {
+	padding: 0 em(11, 14);
+	height: em(40, 14);
+	background-color: #e0e4ea;
+	color: #fff;
+	@include font-bold;
+	font-size: em(14);
+	line-height: em(40, 14);
+	text-align: center;
+
+	&.shipping {
+		background-color: #4cd2e7;
+	}
+	&.ing {
+		background-color: $color-orange;
+	}
+	&.shop {
+		background-color: #a074ed;
+	}
+}

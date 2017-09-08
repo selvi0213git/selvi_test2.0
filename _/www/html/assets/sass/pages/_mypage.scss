@@ -1,0 +1,43 @@
+/**
+ * My Page
+ */
+.user-profile {
+	padding-top: em(32);
+	padding-bottom: em(25);
+	background-color: $color-white-gray;
+	text-align: center;
+
+	.user-img {
+		margin: 0 auto;
+		width: 100%;
+		max-width: em(200);
+		border: 1px solid #9b9b9b;
+		border-radius: 7px;
+		overflow: hidden;
+	}
+
+	.login-info {
+		margin-top: 10px !important;
+		color: #999 !important;
+		@include font-regular;
+		font-size: 14px;
+	}
+}
+
+.my-basic-info {
+	margin-bottom: em(105);
+
+	.form-list {
+		margin-top: em(45);
+		padding-bottom: em(45);
+		border-bottom: 2px solid #a1a1a1;
+	}
+
+	.field-control {
+		margin-top: 28px;
+	}
+}
+
+.my-history {
+	margin-top: em(32);
+}//my-history

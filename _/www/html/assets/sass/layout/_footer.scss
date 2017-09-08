@@ -1,0 +1,46 @@
+/**
+ * Selvi Site Footer
+ */
+ footer {
+	background-color: $color-white-gray !important;
+
+	.footer-widgets {
+		padding-top: em(24);
+		padding-bottom: em(55);
+		border-bottom: none;
+	}
+ }
+
+.site-footer {
+	border-top: 1px solid #dbdbdb;
+
+	.site-info {
+		@include font-regular;
+		font-size: 14px;
+		line-height: 1.5;
+		word-break: keep-all;
+		
+		p + p {
+			margin-top: 3px;
+		}
+	}
+
+	.footer-menu {
+		margin-top: 18px;
+		@include font-regular;
+		font-size: 14px;
+		line-height: 1.5;
+
+		a {
+			white-space: pre;
+
+			&:hover, &:focus {
+				border-bottom: 1px solid rgba($font-color, 0.7);
+			}
+		}
+
+		.divider {
+			margin: 0 -3px;
+		}
+	}
+}

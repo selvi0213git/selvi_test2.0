@@ -1,0 +1,25 @@
+/*
+Theme Name: Proton Child
+Theme URI: http://neuronthemes.com/proton_demo
+Description: This is a child theme of Proton
+Author: NeuronThemes
+Author URI: http://neuronthemes.com
+Template: proton
+Version: 1.0
+*/
+
+@import url("../proton/style.css");
+
+
+/*Your Custom CSS below*/
+
+/*특성이미지 숨기기 20170523 eley*/
+.post.has-post-thumbnail .post-thumbnail {
+    display: none;
+}
+.single-post .attachment-post-thumbnail {
+  display: none;
+}
+.post.has-post-thumbnail {
+    padding-top: 4%;
+}

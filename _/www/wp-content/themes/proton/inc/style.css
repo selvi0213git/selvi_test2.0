@@ -1,0 +1,39 @@
+#mystatus-form {
+	margin: 2em 0;
+}
+#mystatus-form p {
+	margin: 0 0 1em 0;
+}
+#mystatus-form input {
+	margin: 0;
+}
+#mystatus-form textarea {
+	box-sizing: border-box;
+	width: 100%;
+	background-color: #f8f8f8;
+}
+#mystatus-form .cancel {
+	margin-left: 10px;
+}
+
+#mystatus-list {
+	margin: 2em 0;
+}
+#mystatus-list .item {
+	border-top: 1px solid #ddd;
+	padding-top: 1.2em;
+	margin-top: 1.2em;
+}
+#mystatus-list .content p {
+	margin: 0 0 1em 0;
+}
+#mystatus-list .meta {
+	font-size: .9em;
+}
+
+#mystatus .sep {
+	margin-left: .3em;
+	margin-right: .3em;
+	opacity: .5;
+	filter: alpha(opacity=50);
+}

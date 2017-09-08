@@ -1,0 +1,134 @@
+/**
+ * Form Style
+ */
+$border-color: #dddddd;
+
+button, input, select, textarea {
+	-webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  @include border-radius(0);
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  border: none;
+  box-shadow: none;
+  box-sizing: border-box;
+  outline: none;
+  
+  /* Placeholder Style for IE */  
+	&:-ms-input-placeholder {
+    color: $font-color !important;
+  }
+
+  /* Basic Style */
+  color: $font-color;
+	@include font-regular;
+	font-size: 1em;
+	line-height: 1;
+}
+
+
+button {
+	background: transparent;
+}
+
+.input-text {
+	padding-top: em(5, 18);
+	padding-bottom: em(6, 18);
+	padding-left: em(5, 18);
+	border: 2px solid $border-color;
+	box-sizing: border-box;
+	line-height: em(27, 18);
+}
+
+.textarea {
+	display: block; //remove margin bottom
+	padding-left: em(5, 18);
+	border: 2px solid $border-color;
+	box-sizing: border-box;
+	line-height: em(27, 18);
+	overflow: auto;
+	resize: none;
+}
+
+/**
+ * Checkbox
+ */
+/* Default Checkbox */
+input[type=checkbox],
+input[type=radio] {
+ -webkit-appearance: checkbox !important;
+ -moz-appearance: checkbox !important;
+ -ms-appearance: checkbox !important;
+ -o-appearance: checkbox !important;
+ appearance: checkbox !important;
+}
+
+.check-form {
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+
+	input[type=radio],
+	input[type=checkbox] {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip:rect(0,0,0,0); border: 0
+	}
+	
+	label {
+		position: relative;
+		display: inline-block;
+		margin-bottom: 0;
+		@include font-regular;
+		line-height: 1em;
+	}
+
+
+	/* Checkbox */
+	input[type=checkbox] + label:before {
+		content: ' ';
+		display: inline-block;
+		margin-right: 10px;
+		width: 15px;
+	  height: 14px;
+	  background-color: #fff;
+	  border: 1px solid #7f7f7f;
+	  box-sizing: border-box;
+	}
+
+	input[type=checkbox]:checked + label:before {
+		// background: #fff url(../images/very-basic-checkmark-icon.png) center center no-repeat;
+		background: #fff url(../images/checkmark.svg) center center no-repeat;
+		background-size: contain;
+	}
+
+	/* Radio Button */
+	// input[type=radio] + label:after {
+	// 	content: ' ';
+	// 	display: inline-block;
+	// 	width: em(21);
+	//   height: em(21);
+	//   background-color: #f3f1f1;
+	//   border: 2px solid $border-color;
+	//   border-radius: (50%);
+	//   box-sizing: border-box;
+	// 	text-align: center;
+	// 	vertical-align: middle;
+	// }
+
+	// input[type="radio"]:checked + label:before {
+	// 	content: ' ';
+	// 	position: absolute;
+	// 	top: em(4);
+	// 	right: em(4);
+	// 	width: em(13);
+	// 	height: em(13);
+	// 	background: $color-light-gray;
+	// 	@include border-radius(50%);
+	// }
+}//check-form

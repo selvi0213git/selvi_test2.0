@@ -1,0 +1,39 @@
+<!-- ============= pop write board ============== -->
+<section class="pop-univ pop-write-board">
+	<div class="inner">
+		<h1 class="pop-header">질문하기</h1>
+		<div class="pop-content">
+			<div class="content">
+				<div class="form-list">
+					<dl>
+						<dt>제목</dt>
+						<dd>
+							<input type="text" class="input-text col-12">
+						</dd>
+					</dl>
+					<dl class="field-msg">
+						<dt>내용</dt>
+						<dd>
+							<textarea class="textarea col-12"></textarea>
+						</dd>
+					</dl>
+					<dl>
+						<dt>첨부파일</dt>
+						<dd>
+							<div class="filebox">
+								<input class="input-file-name input-text" type="text" disabled="disabled">
+						 	  <label for="attach">파일첨부</label>
+					 		  <input class="hidden-input-file" type="file" id="attach">
+							</div><!-- /.filebox -->
+							<script>ui.filebox();</script>
+						</dd>
+					</dl>
+				</div><!-- /.form-list --> 
+			</div><!-- /.content -->
+			<div class="controls btn-2">
+				<input type="button" value="등록" class="btn-univ btn-confirm">
+				<input type="button" value="취소" class="btn-univ gray btn-cancel" onclick="$.magnificPopup.close();">
+			</div><!-- /.controls -->
+		</div>
+	</div><!-- /.inner -->
+</section><!-- /.pop-write-board -->

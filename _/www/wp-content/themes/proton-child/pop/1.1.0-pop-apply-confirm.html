@@ -1,0 +1,26 @@
+<section class="pop-univ pop-confirm pop-apply">
+	<div class="inner">
+		<h1 class="pop-header">잠깐!</h1>
+		<div class="pop-content">
+			<div class="content">
+				이벤트 응모시 <em>게시글 나만보기</em> 또는 <br/>
+				<em>공유 취소시</em> 당첨 무효가 됩니다. <br/>
+			</div>
+			<div class="controls btn-2">
+				<input type="button" value="응모하기" class="btn-univ btn-confirm" onclick="btnApplyClickListener(event)">
+				<input type="button" value="취소" class="btn-univ gray btn-cancel" onclick="jQuery.magnificPopup.close();">
+			</div><!-- /.controls -->
+		</div>
+	</div><!-- /.inner -->
+</section>
+
+<script>
+	function btnApplyClickListener(e) {
+	//e.stopPropagation();
+	  //openApplyRoulette();
+	  
+	  /*Popup close -> FB share open*/
+	  jQuery.magnificPopup.close();
+	  fb_share_pop();
+	}
+</script>

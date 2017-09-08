@@ -1,0 +1,108 @@
+/**
+ * Universal Modal Popup Style
+ */
+.mfp-bg {
+	background-color: transparent;
+}
+.mfp-wrap {
+	min-width: 320px;
+}
+
+.pop-univ {
+	position: relative;
+	padding: 0 em(50) em(11) em(50);
+	margin: 0 auto;
+	width: 100%;
+ 	background-color: #fff;
+ 	box-shadow: 3px 2px 7px 0px rgba(#000, 0.25);
+ 	box-sizing: border-box;
+ 	text-align: center;
+
+ 	.inner {
+ 	}
+
+ 	.pop-header {
+ 		margin-top: 0;
+ 		margin-bottom: em(17, 46);
+ 		padding-top: em(48, 46);
+ 		@include font-han-regular;
+ 		font-size: em(46);
+ 		word-break: keep-all;
+ 	}
+
+ 	.pop-content {
+ 		padding-bottom: em(39);
+
+ 		.content {
+	 		font-size: em(18);
+	 		line-height: em(30, 18);
+	 		word-break: keep-all;
+
+	 		em {
+	 			color: $color-orange;
+	 			font-style: normal;
+	 		}
+ 		}
+
+ 		.controls {
+ 			@extend .clearfix;
+	 		margin-top: em(40);
+
+	 		&.btn-2 {
+	 			margin-left: auto;
+	 			margin-right: auto;
+				max-width: 306px;
+
+	 			.btn-univ {
+		 			float: left;
+	 				width: per(148, 306);
+	 				min-width: auto;
+
+	 				& + .btn-univ {
+	 					margin-left: per(10, 306);
+	 				}
+	 			}
+	 		}
+ 		}//controls
+ 	}//pop-content
+
+ 	@include responsive($width-small-medium) {
+		padding-left: 30px;
+		padding-right: 30px;
+		font-size: 14px;
+ 	}
+}//pop-univ
+
+.pop-confirm {
+	max-width: em(440);
+
+	.inner {
+		padding: 0 em(17);
+	}
+
+	@include responsive($width-small-medium) {
+		.inner {
+			padding: 0;
+		}
+ 	}
+}
+
+.pop-alert {
+	padding: em(27);
+	max-width: em(440);
+
+	.mfp-close {
+		top: -5px;
+		right: -5px;
+	}
+
+	.inner {
+		background-color: #e3e8f1;
+	}
+
+	.pop-content {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+
+}

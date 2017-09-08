@@ -1,0 +1,48 @@
+@import url(custom-style-core.css);
+
+/* css delivery only + : eley*/
+
+/* css duplicate blog page + : eley*/
+.wrapper .blog .blog-content .blog-post .blog-info .page-basic-header {
+	padding-top: 1.0em;
+	margin-bottom: 1.875em;
+}
+
+.wrapper .blog .blog-content .blog-post .blog-info .page-basic-header .page-desc {
+	margin-top: 7px;
+	color: #999;
+	font-family: 'KHNPHan Dotum Regular', sans-serif;
+	font-size: 1.125em;
+	line-height: 1.4;
+	word-break: keep-all;
+	text-align: left;
+}
+
+/*
+ * Blog info Title Hidden - eley
+ */
+.wrapper .blog .blog-content .blog-post .blog-info h2 {
+	margin: 15px 0;
+	display: none;
+}
+
+.wrapper .blog .blog-content .blog-post .blog-info h2.section-title {
+	display: inherit;
+}
+
+/*
+ * Blog Basic Setting remove - eley
+ */
+.wrapper .blog .blog-content .blog-post .blog-info p {
+	margin-top: 10px;
+	color: #999;
+	font-family: 'Noto Sans Korean Regular', sans-serif;
+	font-weight: 400;
+	font-size: 14px;
+	text-align: center;
+}
+
+/*
+ * Contact 7 hidden battom bar - eley
+ */
+	div.wpcf7-response-output, div.wpcf7-validation-errors { display: none !important; }
