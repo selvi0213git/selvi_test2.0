@@ -1169,50 +1169,6 @@ button.kboard-ask-one-button-search:active {
 .board-tools .search-form {
   float: left;
 }
-.board-tools .search-form .search-label {
-  display: inline-block;
-  margin-right: 0.66667em;
-  font-family: 'Noto Sans Korean Regular', sans-serif;
-  font-weight: 400;
-  font-size: 1.125em;
-  vertical-align: middle;
-}
-.board-tools .search-form .search-group {
-  zoom: 1;
-  /* ie 6/7 */
-  display: inline-block;
-  width: 22.5em;
-  vertical-align: middle;
-}
-.board-tools .search-form .search-group::before, .board-tools .search-form .search-group::after {
-  content: "";
-  display: table;
-}
-.board-tools .search-form .search-group::after {
-  clear: both;
-}
-.board-tools .search-form .search-group .input-search {
-  float: left;
-  font-size: 1.125em;
-  width: 79.72222%;
-  vertical-align: bottom;
-}
-.board-tools .search-form .search-group .btn-search {
-  float: left;
-  margin-left: 1.38889%;
-  padding-top: 0.27778em;
-  padding-bottom: 0.33333em;
-  width: 18.88889%;
-  background-color: #ddd;
-  border-top: 2px solid #ddd;
-  border-bottom: 2px solid #ddd;
-  box-sizing: border-box;
-  cursor: pointer;
-  font-size: 1.125em;
-  line-height: 1.5em;
-  text-align: center;
-  vertical-align: bottom;
-}
 .board-tools .sort {
   float: right;
 }

@@ -15,12 +15,45 @@
 </section>
 
 <script>
+	//20170911 로직변경
+	var user_connect_ck = '<?php echo $_GET["user_connect_ck"] ?>';
 	function btnApplyClickListener(e) {
 	//e.stopPropagation();
 	  //openApplyRoulette();
 	  
 	  /*Popup close -> FB share open*/
 	  jQuery.magnificPopup.close();
-	  fb_share_pop();
+	  
+	  //facebook
+	  if(user_connect_ck == 'facebook'){
+		fb_share_pop();
+	  }
+	  
+	  //naver
+	  /* 20170918 보류
+	  if(user_connect_ck == 'naver'){
+		na_share_pop();
+	  }
+	  */
+	  
+	  //kakao
+	  /* 20170915 보류
+	  if(user_connect_ck == 'kakao'){
+		ka_share_pop();
+	  }
+	  */
+	  
+	  //20170915 응모채널추가
+	   //kakao Story
+	  if(user_connect_ck == 'kakao_story'){
+		ks_share_pop();
+	  }
+	  
+	  //naver band
+	   /* 20170915 보류
+	  if(user_connect_ck == 'naver'){
+		nb_share_pop();
+	  }
+	  */
 	}
 </script>

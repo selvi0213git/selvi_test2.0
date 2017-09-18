@@ -18,6 +18,10 @@
 * [20170724] | RENEWAL                            | eley 
 * [20170731] | POPUP RENEWAL                      | eley 
 * [20170906] | 1개일때 확률로직 추가                      | eley 
+*
+* [20170911] | 응모채널 추가 대응                        | eley 
+* [20170914] | 응모채널 추가에 따른 응모기능 추가              | eley 
+* [20170915] | 채널별 응답확인                               | eley 
 */
 
 class event_info {
@@ -64,6 +68,27 @@ class event_info {
 		$user_id = $current_user->ID;
 		$user_roll = ($user_id != 0) ? $current_user->user_status : 0;
 		$user_url_ck = ($user_id != 0) ? $current_user->user_url : '';
+		//20170911 유저 접속 체크
+		$user_by    = ($user_id != 0) ? $current_user->user_login : '';
+		$user_nicename    = ($user_id != 0) ? $current_user->user_nicename : '';
+		
+		$user_connect_ck = '';
+		//페이스북
+		if(substr($user_by,0,8) == 'facebook' || substr($user_url_ck,11,8) == 'facebook') {
+			$user_connect_ck = 'facebook';
+		}
+		//네이버
+		if(substr($user_by,0,5) == 'naver' || substr($user_nicename,-9) == 'naver-com') {
+			$user_connect_ck = 'naver';
+		}
+		//카카오
+		if(substr($user_by,0,5) == 'kakao' || substr($user_nicename,0,5) == 'naver-com') {
+			$user_connect_ck = 'kakao';
+		}
+		//카카오메일
+		if(substr($user_by,-12) == '@hanmail.net' || substr($user_nicename,-11) == 'hanmail-net') {
+			$user_connect_ck = 'kakao';
+		}
 
 		//변수에 저장
 		$event_id 		 = isset($_GET['eventinfo-event_id']) ? $_GET['eventinfo-event_id'] : '';
@@ -99,6 +124,13 @@ class event_info {
 		//텍스트설정
 		$event_ck_tx   = "이벤트 종료";
 		$event_type_tx = "배송";
+		$event_type_class = "event-flag shipping";
+		
+		//응모가능 설정
+		$event_ck = false;
+		
+		//20170915 모바일/PC체크
+		$mobile_ck = '';
 		
 		//테이블에 저장된 post id값 있을때
 		if($row = $this->get_row($post_id)) {
@@ -135,9 +167,6 @@ class event_info {
 			//기준시간 한국으로 설정
 			date_default_timezone_set('Asia/Seoul');
 			
-			//응모가능한지 체크
-			$event_ck = false;
-			
 			$curnt_t     = date("Y-m-d H:i:s");
 			$event_end_t = date("Y-m-d H:i:s", strtotime($event_end));
 
@@ -165,9 +194,20 @@ class event_info {
 		//이벤트타입 텍스트 설정
 		if($event_type == 1){
 			$event_type_tx ="매장";
+			$event_type_class = "event-flag shop";
 		}else{
 			$event_type_tx ="배송";
+			$event_type_class = "event-flag shipping";
 		}
+		
+		//20170915 모바일/PC체크
+		/* 모바일 장치용 코드 */
+		if ( wp_is_mobile() ) {
+			$mobile_ck = 'mobile';
+		}else{
+			$mobile_ck = 'pc';
+		}
+		
 		?>
 	    
 		<!--폼 구성-->
@@ -188,7 +228,7 @@ class event_info {
 				<!-- 이벤트 종료 -->
 			<?php }else { ?>
 			<div class="event-flag-group">
-				<p class="event-flag shipping"><?php echo $event_type_tx?></p>
+				<p class="<?php echo $event_type_class ?>"><?php echo $event_type_tx?></p>
 				<p class="event-flag ing">진행</p>
 			</div><!-- /.event-flag-group -->
 			<?php } ?>
@@ -284,7 +324,7 @@ class event_info {
 				<!-- 이벤트 종료 -->
 			<?php }else { ?>
 			<div class="event-flag-group">
-				<p class="event-flag shipping"><?php echo $event_type_tx?></p>
+				<p class="<?php echo $event_type_class ?>"><?php echo $event_type_tx?></p>
 				<p class="event-flag ing">진행</p>
 			</div><!-- /.event-flag-group -->
 			<?php } ?>
@@ -324,13 +364,19 @@ class event_info {
 			<?php if( $event_ck ){ ?>
 				<input type="button" id="enter_button" value="이벤트종료" class="btn-apply-facebook" disabled />
 			<?php }else { ?>
-				<?php if( $enter ) { ?>
-					<input type="button" id="enter_button" value="응모완료" class="btn-apply-facebook" disabled />
-				<?php } else {?>
-					<input type="button" id="enter_button" value="FaceBook응모하기" class="btn-apply-facebook" />
-				<?php }?>
+					<!-- 20170911 로직변경 -->
+					<input type="button" id="enter_button_fb" <?php if( $enter && $user_connect_ck == 'facebook') { ?> value="FaceBook 응모완료" <?php } else { ?> value="FaceBook 응모하기" <?php } ?> class="btn-apply-facebook" <?php if( $enter && $user_connect_ck == 'facebook') { ?> disabled <?php }?>/>
+					
+					<!-- 20170915 채널추가 -->
+					<input type="button" id="enter_button_ks" <?php if( $enter && $user_connect_ck == 'kakao') { ?> value="카카오스토리 응모완료" <?php } else { ?> value="카카오스토리 응모하기" <?php } ?> class="btn-selvi yellow" <?php if( $enter && $user_connect_ck == 'kakao') { ?> disabled <?php }?>/>
+
+					<!-- 20170915 band, kakao 보류 
+					<input type="button" id="enter_button_na" <?php //if( $enter && $user_connect_ck == 'naver') { ?> value="네이버 응모완료" <?php  //} else { ?> value="네이버 응모하기" <?php //} ?> class="btn-selvi green" <?php //if( $enter && $user_connect_ck == 'naver') { ?> disabled <?php //}?>/>
+					<input type="button" id="enter_button_ka" <?php //if( $enter && $user_connect_ck == 'kakao') { ?> value="Kakao 응모완료" <?php //} else { ?> value="Kakao 응모하기" <?php //} ?> class="btn-selvi yellow" <?php //if( $enter && $user_connect_ck == 'kakao') { ?> disabled <?php //}?>/>
+					<input type="button" id="enter_button_nb" <?php// if( $enter && $user_connect_ck == 'naver') { ?> value="BAND 응모완료" <?php //} else { ?> value="BAND 응모하기"<?php //} ?> class="btn-selvi green" <?php //if( $enter && $user_connect_ck == 'naver') { ?> disabled <?php //}?>/>\
+					-->
 			<?php }?>
-		</section>
+		</section>			
 		
 		<!-- detail renewal end -------------------------------------------------------------------------->
 							
@@ -477,9 +523,24 @@ class event_info {
 						clearInterval(timer);
 						document.getElementById(id).innerHTML = '종료';
 						//<p style="text-align:center;"><b><input type="button" id="enter_button" value="응모종료" style="width:100%; text-align:center; background-color:darkgray;" disabled /></b></p>
-
-						document.getElementById("enter_button").disabled = true;
-						document.getElementById("enter_button").style = "width:100%; text-align:center; background-color:darkgray;";
+						
+						//20170911 로직변경
+						document.getElementById("enter_button_fb").disabled = true;
+						document.getElementById("enter_button_fb").style = "width:100%; text-align:center; background-color:darkgray;";
+						
+						/* 20170915 채널추가 */
+						document.getElementById("enter_button_ks").disabled = true;
+						document.getElementById("enter_button_ks").style = "width:100%; text-align:center; background-color:darkgray;";
+						
+						/* 20170915 보류
+						document.getElementById("enter_button_na").disabled = true;
+						document.getElementById("enter_button_na").style = "width:100%; text-align:center; background-color:darkgray;";
+						document.getElementById("enter_button_nb").disabled = true;
+						document.getElementById("enter_button_nb").style = "width:100%; text-align:center; background-color:darkgray;";
+						document.getElementById("enter_button_ka").disabled = true;
+						document.getElementById("enter_button_ka").style = "width:100%; text-align:center; background-color:darkgray;";
+						*/
+						
 						return;
 					}
 					
@@ -498,6 +559,137 @@ class event_info {
 				timer = setInterval(showRemaining, 1000);
 			}
 			
+			//20170911 로직변경
+			//당첨로직
+			function set_probability() {
+				//확률계산을 위한 변수
+				var event_prize = "<?php echo $event_prize;?>";
+				var event_end   = "<?php echo $event_end;?>";
+				var event_enter = "<?php echo $event_enter;?>";
+				var status = "<?php echo $status; ?>";
+					
+				//응모인원+1 //status
+				event_enter = parseInt(event_enter)+1;
+				document.getElementById("event_enter").value = event_enter;
+				document.getElementById("status").value = status;
+				
+				//당첨자 선정 랜덤함수
+				//확률 = 경품 % 시간 * 100
+				event_end = event_end.replace(/-/g, '/');//IE에서는 지원안함 NAN표시 -> .replace("-","/")
+				var end = new Date(event_end);
+				var _second = 1000;
+				var _minute = _second * 60;
+				var _hour   = _minute * 60;
+				var _day    = _hour * 24;
+				
+				function showRemaining() {
+					var now = new Date();
+					var distance = end - now;
+					
+					if (distance > 0) {
+						clearInterval(timer);
+						var days = distance / _day;
+						var min = days*24*60;
+					}
+					return min;
+				}
+				timer = setInterval(showRemaining, 1000);
+				
+				//남은시간 분으로 환산한 값
+				var remain_min = showRemaining();
+				
+				//20170906 1개이하 확률로직 추가
+				if(event_prize == 1){
+					//남은일수 확률 재측정 범위설정
+					if(remain_min < 4320) {
+						//범위설정 랜덤
+						if(Math.random()<((event_prize/remain_min)*100)){
+							//당첨시
+							//남은경품 -1 //event_prize-1; //status = 1
+							document.getElementById("event_prize").value = event_prize;
+
+							event_prize = parseInt(event_prize)-1;
+							document.getElementById("event_prize").value = event_prize;
+							
+							status = 1;
+							document.getElementById("status").value = status;
+							
+							// POPUP RENEWAL -------------------------------------------------------------------------------------->
+							
+							/* SUBMIT */
+							jQuery("#eventinfo-form").submit();
+							
+							/* ENTER TRUE */
+							openApplyRoulette(2);
+							
+						}else {
+							//미당첨시
+							//status = 0
+							status = 0;
+							document.getElementById("status").value = status;
+							
+							// POPUP RENEWAL -------------------------------------------------------------------------------------->
+							
+							/* SUBMIT */
+							jQuery("#eventinfo-form").submit();
+							
+							/* ENTER FALSE*/
+							openApplyRoulette(1);
+						}
+						
+					//범위 X
+					}else {
+						//미당첨시
+						//status = 0
+						status = 0;
+						document.getElementById("status").value = status;
+						
+						// POPUP RENEWAL -------------------------------------------------------------------------------------->
+						
+						/* SUBMIT */
+						jQuery("#eventinfo-form").submit();
+						
+						/* ENTER FALSE*/
+						openApplyRoulette(1);
+					}
+				
+				//일반
+				}else {
+					if(Math.random()<((event_prize/remain_min)*100)){
+						//당첨시
+						//남은 경품 -1 //event_prize-1; //status = 1
+						document.getElementById("event_prize").value = event_prize;
+
+						event_prize = parseInt(event_prize)-1;
+						document.getElementById("event_prize").value = event_prize;
+						
+						status = 1;
+						document.getElementById("status").value = status;
+						
+						// POPUP RENEWAL -------------------------------------------------------------------------------------->
+						
+						/* SUBMIT */
+						jQuery("#eventinfo-form").submit();
+						
+						/* ENTER TRUE */
+						openApplyRoulette(2);
+						
+					}else{
+						//미당첨시
+						//status = 0
+						status = 0;
+						document.getElementById("status").value = status;
+						
+						// POPUP RENEWAL -------------------------------------------------------------------------------------->
+						
+						/* SUBMIT */
+						jQuery("#eventinfo-form").submit();
+						
+						/* ENTER FALSE*/
+						openApplyRoulette(1);
+					}
+				}
+			}
 			
 			//페이스북 공유로직
 			function fb_share_pop(){
@@ -535,148 +727,137 @@ class event_info {
 					display: 'popup',
 				  },
 				  function(response) {
-					 
-					//확률계산을 위한 변수
-					var event_prize = "<?php echo $event_prize;?>";
-					var event_end   = "<?php echo $event_end;?>";
-					var event_enter = "<?php echo $event_enter;?>";
-					var status = "<?php echo $status; ?>";
-					
 					//응답시 공유체크
 					if (response && !response.error_code) {
-						//응모인원+1 //status
-						event_enter = parseInt(event_enter)+1;
-						document.getElementById("event_enter").value = event_enter;
-						document.getElementById("status").value = status;
-						
-						//당첨자 선정 랜덤함수
-						//확률 = 경품 % 시간 * 100
-						event_end = event_end.replace(/-/g, '/');//IE에서는 지원안함 NAN표시 -> .replace("-","/")
-						var end = new Date(event_end);
-						var _second = 1000;
-						var _minute = _second * 60;
-						var _hour   = _minute * 60;
-						var _day    = _hour * 24;
-						
-						function showRemaining() {
-							var now = new Date();
-							var distance = end - now;
-							
-							if (distance > 0) {
-								clearInterval(timer);
-								var days = distance / _day;
-								var min = days*24*60;
-							}
-							return min;
-						}
-						timer = setInterval(showRemaining, 1000);
-						
-						//남은시간 분으로 환산한 값
-						var remain_min = showRemaining();
-						
-						//20170906 1개이하 확률로직 추가
-						if(event_prize == 1){
-							//남은일수 확률 재측정 범위설정
-							if(remain_min < 2) {
-								//범위설정 랜덤
-								if(Math.random()<((event_prize/remain_min)*100)){
-									//당첨시
-									//남은경품 -1 //event_prize-1; //status = 1
-									document.getElementById("event_prize").value = event_prize;
-
-									event_prize = parseInt(event_prize)-1;
-									document.getElementById("event_prize").value = event_prize;
-									
-									status = 1;
-									document.getElementById("status").value = status;
-									
-									// POPUP RENEWAL -------------------------------------------------------------------------------------->
-									
-									/* SUBMIT */
-									jQuery("#eventinfo-form").submit();
-									
-									/* ENTER TRUE */
-									openApplyRoulette(2);
-									
-								}else {
-									//미당첨시
-									//status = 0
-									status = 0;
-									document.getElementById("status").value = status;
-									
-									// POPUP RENEWAL -------------------------------------------------------------------------------------->
-									
-									/* SUBMIT */
-									jQuery("#eventinfo-form").submit();
-									
-									/* ENTER FALSE*/
-									openApplyRoulette(1);
-								}
-								
-							//범위 X
-							}else {
-								//미당첨시
-								//status = 0
-								status = 0;
-								document.getElementById("status").value = status;
-								
-								// POPUP RENEWAL -------------------------------------------------------------------------------------->
-								
-								/* SUBMIT */
-								jQuery("#eventinfo-form").submit();
-								
-								/* ENTER FALSE*/
-								openApplyRoulette(1);
-							}
-						
-						//일반
-						}else {
-							if(Math.random()<((event_prize/remain_min)*100)){
-								//당첨시
-								//남은 경품 -1 //event_prize-1; //status = 1
-								document.getElementById("event_prize").value = event_prize;
-
-								event_prize = parseInt(event_prize)-1;
-								document.getElementById("event_prize").value = event_prize;
-								
-								status = 1;
-								document.getElementById("status").value = status;
-								
-								// POPUP RENEWAL -------------------------------------------------------------------------------------->
-								
-								/* SUBMIT */
-								jQuery("#eventinfo-form").submit();
-								
-								/* ENTER TRUE */
-								openApplyRoulette(2);
-								
-							}else{
-								//미당첨시
-								//status = 0
-								status = 0;
-								document.getElementById("status").value = status;
-								
-								// POPUP RENEWAL -------------------------------------------------------------------------------------->
-								
-								/* SUBMIT */
-								jQuery("#eventinfo-form").submit();
-								
-								/* ENTER FALSE*/
-								openApplyRoulette(1);
-							}
-						}
-						
+						//20170911 로직변경
+						//확률세팅 및 룰렛게임시작
+						set_probability();
 					//공유하지 않았을때
 					} else {
 						alert('이벤트 응모가 취소되었습니다.\n응모가 제대로 되지않을 경우 다른 브라우저로 접속해주세요.');
 					}
-				
 				});
 			  //});
 			}
 			
-			//응모버튼 클릭시
-			jQuery("#enter_button").click(function (e) {
+			//20170911 네이버 공유로직
+			/* 20170918 보류
+			function na_share_pop(){
+				//팝업가운데 세팅
+				var screenW = screen.availWidth;  // 스크린 가로사이즈
+				var screenH = screen.availHeight; // 스크린 세로사이즈
+				var popW = 400; // 띄울창의 가로사이즈
+				var popH = 500; // 띄울창의 세로사이즈
+				var posL=( screenW-popW ) / 2;   // 띄울창의 가로 포지션 
+				var posT=( screenH-popH ) / 2;   // 띄울창의 세로 포지션 
+				
+				//20170915 모바일/PC체크
+				//var mobile_ck = '<?php echo $mobile_ck?>';
+				
+				var share_na_pop = window.open('http://share.naver.com/web/shareView.nhn?url=<?php echo $link?>&title=<?php echo $title?>-<?php echo $siteTitle?>', '네이버로 공유하기', 'width='+ popW +',height='+ popH +',top='+ posT +',left='+ posL +',resizable=no,scrollbars=no');
+				
+				//팝업트릭
+				var popupTick = setInterval(function() {
+					if(share_na_pop.closed) {
+						clearInterval(popupTick);
+						
+						//룰렛게임시작 20170914
+						set_probability();
+					}
+				}, 500);
+
+				return false;
+			}
+			*/
+			
+			//20170911 카카오 공유로직
+			/* 20170915 보류
+			function ka_share_pop(){
+				
+				//공유 이미지 설정
+				<?php 
+				$thumbnail_url = wp_get_attachment_url( get_post_thumbnail_id($post_id),'full');
+				?>
+				
+				Kakao.init('06371afb514d3fdd8362d5134491d19b');
+				
+				Kakao.Link.sendTalkLink({
+					//container: '#kakao-link-btn',
+					label: '행운을 탐하다!\nwww.selvi.co.kr',
+					image: {
+					src: '<?php echo $thumbnail_url?>',
+					width: '300',
+					height: '300'
+					},
+					webButton: {
+					text: '<?php echo $title?>',
+					url: '<?php echo $link?>'
+					}
+				});
+				
+				//룰렛게임시작 20170914
+				set_probability();
+			}
+			*/
+			
+			//20170915 채널추가
+			//카카오 스토리 공유로직
+			function ks_share_pop(){
+				
+				//팝업가운데 세팅
+				var screenW = screen.availWidth;  // 스크린 가로사이즈
+				var screenH = screen.availHeight; // 스크린 세로사이즈
+				var popW = 400; // 띄울창의 가로사이즈
+				var popH = 500; // 띄울창의 세로사이즈
+				var posL=( screenW-popW ) / 2;   // 띄울창의 가로 포지션 
+				var posT=( screenH-popH ) / 2;   // 띄울창의 세로 포지션 
+				
+				var share_ks_pop = window.open('https://story.kakao.com/share?url=<?php echo $link?>', '카카오스토리 공유하기', 'width='+ popW +',height='+ popH +',top='+ posT +',left='+ posL +',resizable=no,scrollbars=no');
+
+				//팝업트릭
+				var popupTick = setInterval(function() {
+					if(share_ks_pop.closed) {
+						clearInterval(popupTick);
+						
+						//룰렛게임시작 20170914
+						set_probability();
+					}
+				}, 500);
+
+				return false;
+			}
+			
+			//네이버 밴드 공유로직
+			/* 20170915 보류
+			function nb_share_pop(){
+				
+				//팝업가운데 세팅
+				var screenW = screen.availWidth;  // 스크린 가로사이즈
+				var screenH = screen.availHeight; // 스크린 세로사이즈
+				var popW = 400; // 띄울창의 가로사이즈
+				var popH = 500; // 띄울창의 세로사이즈
+				var posL=( screenW-popW ) / 2;   // 띄울창의 가로 포지션 
+				var posT=( screenH-popH ) / 2;   // 띄울창의 세로 포지션 
+				
+				var share_nb_pop = window.open('http://www.band.us/plugin/share?body=<?php echo $title?>&route=<?php echo $link?>', '밴드 공유하기', 'width='+ popW +',height='+ popH +',top='+ posT +',left='+ posL +',resizable=no,scrollbars=no');
+
+				//팝업트릭
+				var popupTick = setInterval(function() {
+					if(share_nb_pop.closed) {
+						clearInterval(popupTick);
+						
+						//룰렛게임시작 20170914
+						set_probability();
+					}
+				}, 500);
+
+				return false;
+			}
+			*/
+			
+			//20170911 로직변경
+			//facebook 응모버튼 클릭시
+			jQuery("#enter_button_fb").click(function (e) {
 				//Broswer Check
 				var agent = navigator.userAgent.toLowerCase();
 
@@ -717,11 +898,12 @@ class event_info {
 							//PUM.open(1241);
 						//}
 						*/
-						//페이스북 자동로그인 20170714
-						//location.href = 'http://selvitest.cafe24.com/?action=cosmosfarm_members_social_login&channel=facebook&redirect_to=<?php echo get_permalink()?>';
 						
-						/*로그인 페이지로 이동*/
-						location.href = "http://selvitest.cafe24.com/login/";
+						//페이스북 자동로그인 20170714
+						location.href = 'http://selvitest.cafe24.com/?action=cosmosfarm_members_social_login&channel=facebook&redirect_to=<?php echo get_permalink()?>';
+						
+						/*로그인 페이지로 이동 20170914 CLOSE*/
+						//location.href = "http://selvitest.cafe24.com/login/";
 
 					//유저일때
 					} else {
@@ -729,28 +911,231 @@ class event_info {
 						//이벤트 아이디가 존재할때
 						if(event_id !=""){
 							
-							//로그인 유저가 페이스북유저인지 확인
-							var user_url_ck = "<?php echo $user_url_ck ?>";
-
-							if(user_url_ck != ""){
-								var facebook_ck = user_url_ck.substr(11, 8);
+							//20170911 로직변경
+							//로그인 유저 확인
+							var user_connect_ck = "<?php echo $user_connect_ck ?>";
 								
-								//페이스북유저일때
-								if(facebook_ck=="facebook"){
-									
-									/* NOTICE MESSAGE POPUP*/
-									e.stopPropagation();
-									openApplyConfirm();
-									
-								//페이스북 유저 아닐때
-								}else{
-									alert("페이스북으로 로그인해 주세요.");
-								}
+							//페이스북유저일때
+							if(user_connect_ck=="facebook"){
+								
+								/* NOTICE MESSAGE POPUP*/
+								e.stopPropagation();
+								openApplyConfirm('facebook');
+								
+							//페이스북 유저 아닐때
+							}else if(user_connect_ck!="facebook"){
+								//alert("페이스북으로 로그인해 주세요.");
+								//페이스북 자동로그인 20170714
+								location.href = 'http://selvitest.cafe24.com/?action=cosmosfarm_members_social_login&channel=facebook&redirect_to=<?php echo get_permalink()?>';
 							}
 						}
 					}
 			});
+			
+			/* naver 보류
+			//naver 응모버튼 클릭시
+			jQuery("#enter_button_na").click(function (e) {
+				//Broswer Check
+				var agent = navigator.userAgent.toLowerCase();
+
+				//Samsung Browser
+				/* 20170824 지원됨
+				if (agent.indexOf("samsungbrowser") != -1) {
+					alert("지원되지 않는 브라우저 입니다. \n크롬에서 접속해주세요.");
+					return;
+				}
+				*/
+				
+			/*	var user_id  = <?php echo $user_id?>;
+				  
+					if(!user_id){
+						//네이버 자동로그인 20170914
+						location.href = 'http://selvitest.cafe24.com/?action=cosmosfarm_members_social_login&channel=naver&redirect_to=<?php echo get_permalink()?>';
+						
+						/*로그인 페이지로 이동*/
+						//location.href = "http://selvitest.cafe24.com/login/";
+
+					//유저일때
+			/*		} else {
+						var event_id = document.getElementById("event_id").value;//<?php echo $event_id?>;
+						//이벤트 아이디가 존재할때
+						if(event_id !=""){
+							
+							//20170911 로직변경
+							//로그인 유저 확인
+							var user_connect_ck = "<?php echo $user_connect_ck ?>";
+								
+							//네이버유저일때
+							if(user_connect_ck=="naver"){
+								
+								/* NOTICE MESSAGE POPUP*/
+			/*					e.stopPropagation();
+								openApplyConfirm('naver');
+								
+							//네이버 유저 아닐때
+							}else if(user_connect_ck!="naver"){
+								//alert("네이버로 로그인해 주세요.");
+								//네이버 자동로그인 20170914
+								location.href = 'http://selvitest.cafe24.com/?action=cosmosfarm_members_social_login&channel=naver&redirect_to=<?php echo get_permalink()?>';
+							}
+						}
+					}
+			});
+		*/	
 		
+		/* kakao 보류 
+		//kakao 응모버튼 클릭시
+			jQuery("#enter_button_ka").click(function (e) {
+				//Broswer Check
+				var agent = navigator.userAgent.toLowerCase();
+
+				//Samsung Browser
+				/* 20170824 지원됨
+				if (agent.indexOf("samsungbrowser") != -1) {
+					alert("지원되지 않는 브라우저 입니다. \n크롬에서 접속해주세요.");
+					return;
+				}
+				*/
+				
+		/*		var user_id  = <?php echo $user_id?>;
+				  
+					if(!user_id){
+						//카카오 자동로그인 20170914
+						location.href = 'http://selvitest.cafe24.com/?action=cosmosfarm_members_social_login&channel=kakao&redirect_to=<?php echo get_permalink()?>';
+						
+						/*로그인 페이지로 이동*/
+						//location.href = "http://selvitest.cafe24.com/login/";
+
+					//유저일때
+		/*			} else {
+						var event_id = document.getElementById("event_id").value;//<?php echo $event_id?>;
+						//이벤트 아이디가 존재할때
+						if(event_id !=""){
+							
+							//20170911 로직변경
+							//로그인 유저 확인
+							var user_connect_ck = "<?php echo $user_connect_ck ?>";
+								
+							//카카오유저일때
+							if(user_connect_ck=="kakao"){
+								
+								/* NOTICE MESSAGE POPUP*/
+		/*						e.stopPropagation();
+								openApplyConfirm('kakao');
+								
+							//카카오 유저 아닐때
+							}else if(user_connect_ck!="kakao"){
+								//alert("카카오로 로그인해 주세요.");
+								//카카오 자동로그인 20170914
+								location.href = 'http://selvitest.cafe24.com/?action=cosmosfarm_members_social_login&channel=kakao&redirect_to=<?php echo get_permalink()?>';
+							}
+						}
+					}
+			});
+		*/
+		
+		// 20170915 응모채널 추가
+		//kakao story 응모버튼 클릭시
+			jQuery("#enter_button_ks").click(function (e) {
+				//Broswer Check
+				var agent = navigator.userAgent.toLowerCase();
+
+				//Samsung Browser
+				/* 20170824 지원됨
+				if (agent.indexOf("samsungbrowser") != -1) {
+					alert("지원되지 않는 브라우저 입니다. \n크롬에서 접속해주세요.");
+					return;
+				}
+				*/
+				
+				var user_id  = <?php echo $user_id?>;
+				  
+					if(!user_id){
+						//카카오 자동로그인 20170914
+						location.href = 'http://selvitest.cafe24.com/?action=cosmosfarm_members_social_login&channel=kakao&redirect_to=<?php echo get_permalink()?>';
+						
+						/*로그인 페이지로 이동*/
+						//location.href = "http://selvitest.cafe24.com/login/";
+
+					//유저일때
+					} else {
+						var event_id = document.getElementById("event_id").value;//<?php echo $event_id?>;
+						//이벤트 아이디가 존재할때
+						if(event_id !=""){
+							
+							//20170911 로직변경
+							//로그인 유저 확인
+							var user_connect_ck = "<?php echo $user_connect_ck ?>";
+								
+							//카카오유저일때
+							if(user_connect_ck=="kakao"){
+								
+								/* NOTICE MESSAGE POPUP*/
+								e.stopPropagation();
+								openApplyConfirm('kakao_story');
+								
+							//카카오 유저 아닐때
+							}else if(user_connect_ck!="kakao"){
+								//alert("카카오로 로그인해 주세요.");
+								//카카오 자동로그인 20170914
+								location.href = 'http://selvitest.cafe24.com/?action=cosmosfarm_members_social_login&channel=kakao&redirect_to=<?php echo get_permalink()?>';
+							}
+						}
+					}
+			});
+			
+	
+		/* 20170915 band로그인 중간에 필 - 보류 
+		//naver band 응모버튼 클릭시
+			jQuery("#enter_button_nb").click(function (e) {
+				//Broswer Check
+				var agent = navigator.userAgent.toLowerCase();
+
+				//Samsung Browser
+				/* 20170824 지원됨
+				if (agent.indexOf("samsungbrowser") != -1) {
+					alert("지원되지 않는 브라우저 입니다. \n크롬에서 접속해주세요.");
+					return;
+				}
+				*/
+				
+		/*		var user_id  = <?php echo $user_id?>;
+				  
+					if(!user_id){
+						//네이버 자동로그인 20170914
+						location.href = 'http://selvitest.cafe24.com/?action=cosmosfarm_members_social_login&channel=naver&redirect_to=<?php echo get_permalink()?>';
+						
+						/*로그인 페이지로 이동*/
+						//location.href = "http://selvitest.cafe24.com/login/";
+
+					//유저일때
+		/*			} else {
+						var event_id = document.getElementById("event_id").value;//<?php echo $event_id?>;
+						//이벤트 아이디가 존재할때
+						if(event_id !=""){
+							
+							//20170911 로직변경
+							//로그인 유저 확인
+							var user_connect_ck = "<?php echo $user_connect_ck ?>";
+								
+							//네이버유저일때
+							if(user_connect_ck=="naver"){
+								
+								/* NOTICE MESSAGE POPUP*/
+		/*						e.stopPropagation();
+								openApplyConfirm('naver');
+								
+							//네이버 유저 아닐때
+							}else if(user_connect_ck!="naver"){
+								//alert("네이버로 로그인해 주세요.");
+								//네이버 자동로그인 20170914
+								location.href = 'http://selvitest.cafe24.com/?action=cosmosfarm_members_social_login&channel=naver&redirect_to=<?php echo get_permalink()?>';
+							}
+						}
+					}
+			});
+			
+		*/
 
 		// POPUP RENEWAL -------------------------------------------------------------------------------------->
 		

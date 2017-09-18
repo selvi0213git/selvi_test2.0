@@ -154,8 +154,8 @@ var ui = {
 }//ui
 
 /* popup functions */
-function openApplyConfirm() {
-	ui.openModal('/wp-content/themes/proton-child/pop/1.1.0-pop-apply-confirm.html', 'ajax');
+function openApplyConfirm($user_connect_ck) {
+	ui.openModal('/wp-content/themes/proton-child/pop/1.1.0-pop-apply-confirm.html?user_connect_ck=' + $user_connect_ck, 'ajax');
 }
 
 function openApplyRoulette($prize) {

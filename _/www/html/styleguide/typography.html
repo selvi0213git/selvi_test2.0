@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<title>Selvi Frontend Style Guide</title>
+	<link rel="stylesheet" href="../assets/css/custom-style-core.css">
+	<link rel="stylesheet" href="css/styleguide.css">
+	<link rel="stylesheet" href="js/libs/syntaxhighlighter/shCoreDefault.css">
+	<script type="text/javascript" src="js/include.js"></script>
+	<!--[if lt IE 9]>
+    <script src="js/lib/html5shiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+<div class="guide-frame">
+
+	<header id="guide-header" class="guide-header"></header>
+	<script>buildHeader();</script>
+	<!-- /.guide-header -->
+
+
+	<div class="guide-main">
+
+		<div class="guide-content">
+			<article class="article-button">
+				<h2 class="guide-page-tit">Typography</h2>
+				
+				<section class="style-item">
+					<h3>기본 폰트</h3>
+					<ul class="item-box">
+						<li>
+							기본 텍스트 노토산스 미디엄 16px, Basic Text Noto Sans Korean Medium 16px
+						</li>
+						<li>
+							<pre class="brush: css; toolbar: false;">
+								body {
+								  color: #555555;
+								  font-family: 'Noto Sans Korean Medium';
+								  font-weight: 500;
+								}</pre>
+						</li>
+					</ul><!-- /.item-box -->
+				</section><!-- /.style-item -->
+
+				<section class="style-item">
+					<h3>레귤러</h3>
+					<ul class="item-box">
+						<li>
+							<p style="font-family: 'Noto Sans Korean Regular';font-weight: 400;">노토산스 레귤러, Noto Sans Korean Regular</p>
+						</li>
+						<li>
+							<pre class="brush: css; toolbar: false;">
+							font-family: 'Noto Sans Korean Regular';
+							font-weight: 400;</pre>
+						</li>
+					</ul><!-- /.item-box -->
+				</section><!-- /.style-item -->
+
+				<section class="style-item">
+					<h3>볼드</h3>
+					<ul class="item-box">
+						<li>
+							<p style="font-family: 'Noto Sans Korean Bold';font-weight: 700;">노토산스 볼드, Noto Sans Korean Bold</p>
+						</li>
+						<li>
+							<pre class="brush: css; toolbar: false;">
+							font-family: 'Noto Sans Korean Bold';
+							font-weight: 700;</pre>
+						</li>
+					</ul><!-- /.item-box -->
+				</section><!-- /.style-item -->
+
+				<section class="style-item">
+					<h3>엑스트라 볼드</h3>
+					<ul class="item-box">
+						<li>
+							<p style="font-family: 'Noto Sans Korean Black';font-weight: 900;">노토산스 블랙, Noto Sans Korean Black</p>
+						</li>
+						<li>
+							<pre class="brush: css; toolbar: false;">
+							font-family: 'Noto Sans Korean Black';
+							font-weight: 900;</pre>
+						</li>
+					</ul><!-- /.item-box -->
+				</section><!-- /.style-item -->
+
+				<section class="style-item">
+					<h3>제목 폰트</h3>
+					<ul class="item-box">
+						<li>
+							<p style="font-family: 'KHNPHan Dotum Regular'; font-size: 2.1875em;">컨텐츠 제목 일반</p>
+							<br><br>
+							<p style="font-family: 'KHNPHan Dotum Bold'; font-size: 2.1875em;">컨텐츠 제목 굵게</p>
+						</li>
+						<li>
+							<pre class="brush: css; toolbar: false;">
+							font-family: 'KHNPHan Dotum Regular';
+							font-family: 'KHNPHan Dotum Bold';</pre>
+						</li>
+					</ul><!-- /.item-box -->
+				</section><!-- /.style-item -->
+
+			</article>
+		</div><!-- /.guide-content -->
+
+		<aside id="guide-sidebar" class="guide-sidebar"></aside>
+		<script>buildSidebar();</script>
+		<!-- /.guide-side -->
+
+	</div><!-- /.guide-main -->
+
+</div><!-- /.guide-frame -->
+
+<!-- Script -->
+<script 
+  src="http://code.jquery.com/jquery-1.12.4.min.js"
+  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+  crossorigin="anonymous"></script>
+<script type="text/javascript" src="js/libs/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="js/libs/syntaxhighlighter/shBrushXml.js"></script>
+<script type="text/javascript" src="js/libs/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="js/styleguide-ui.js"></script>
+	
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<title>Selvi Frontend Style Guide</title>
+	<link rel="stylesheet" href="../assets/css/custom-style-core.css">
+	<link rel="stylesheet" href="css/styleguide.css">
+	<link rel="stylesheet" href="js/libs/syntaxhighlighter/shCoreDefault.css">
+	<script type="text/javascript" src="js/include.js"></script>
+	<!--[if lt IE 9]>
+    <script src="js/lib/html5shiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+<div class="guide-frame">
+
+	<header id="guide-header" class="guide-header"></header>
+	<script>buildHeader();</script>
+	<!-- /.guide-header -->
+
+
+	<div class="guide-main">
+
+		<div class="guide-content">
+			<article class="article-button">
+				<h2 class="guide-page-tit">Buttons</h2>
+				
+				<section class="style-item">
+					<h3>기본 버튼</h3>
+					<p class="guide-desc">&lt;a&gt;, &lt;input&gt;, &lt;button&gt; 가능</p>
+					<ul class="item-box">
+						<li>
+							<button type="button" class="btn-univ">버튼 기본</button>
+							<button type="button" class="btn-univ gray">버튼 그레이</button>
+							<button type="button" class="btn-univ" disabled>버튼 비활성화</button>
+							<br><br>
+							<button type="button" class="btn-univ btn-univ-small">버튼 스몰 기본</button>
+							<button type="button" class="btn-univ btn-univ-small gray">버튼 스몰 기본 그레이</button>
+							<button type="button" class="btn-univ btn-univ-small" disabled>버튼 스몰 기본 비활성화</button>
+						</li>
+						<li>
+							<pre class="brush: xml; toolbar: false;">
+							<button type="button" class="btn-univ">버튼 기본</button>
+							<button type="button" class="btn-univ gray">버튼 그레이</button>
+							<button type="button" class="btn-univ" disabled>버튼 비활성화</button>
+							<button type="button" class="btn-univ btn-univ-small">버튼 스몰 기본</button>
+							<button type="button" class="btn-univ btn-univ-small gray">버튼 스몰 기본 그레이</button>
+							<button type="button" class="btn-univ btn-univ-small" disabled>버튼 스몰 기본 비활성화</button>
+						</li>
+					</ul><!-- /.item-box -->
+				</section><!-- /.style-item -->
+
+				<section class="style-item">
+					<h3>컨텐츠 버튼 (로그인, 응모하기 등)</h3>
+					<p class="guide-desc">&lt;a&gt;, &lt;input&gt;, &lt;button&gt; 가능</p>
+					<ul class="item-box">
+						<li>
+							<input type="button" value="FaceBook응모하기" class="btn-selvi">
+							<input type="button" value="FaceBook응모하기(비활성화)" class="btn-selvi" disabled>
+							<br><br>
+							<button type="button" class="btn-selvi orange">버튼 orange</button>
+							<br><br>
+							<button type="button" class="btn-selvi gray">버튼 gray</button><br><br>
+							<input type="button" value="버튼 green" class="btn-selvi green"><br><br>
+							<input type="button" value="버튼 yellow" class="btn-selvi yellow">
+						</li>
+						<li>
+							<pre class="brush: xml; toolbar: false;">
+								<input type="button" value="FaceBook응모하기" class="btn-selvi">
+								<input type="button" value="FaceBook응모하기(비활성화)" class="btn-selvi" disabled>
+								<button type="button" class="btn-selvi orange">버튼 orange</button>
+								<button type="button" class="btn-selvi gray">버튼 gray</button>
+								<input type="button" value="버튼 green" class="btn-selvi green">
+								<input type="button" value="버튼 yellow" class="btn-selvi yellow"></pre>
+						</li>
+					</ul><!-- /.item-box -->
+				</section><!-- /.style-item -->
+			</article>
+		</div><!-- /.guide-content -->
+
+		<aside id="guide-sidebar" class="guide-sidebar"></aside>
+		<script>buildSidebar();</script>
+		<!-- /.guide-side -->
+
+	</div><!-- /.guide-main -->
+
+</div><!-- /.guide-frame -->
+
+<!-- Script -->
+<script 
+  src="http://code.jquery.com/jquery-1.12.4.min.js"
+  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+  crossorigin="anonymous"></script>
+<script type="text/javascript" src="js/libs/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="js/libs/syntaxhighlighter/shBrushXml.js"></script>
+<script type="text/javascript" src="js/styleguide-ui.js"></script>
+	
+</body>
+</html>

@@ -348,6 +348,10 @@ body.home .wrapper, body.bg-gray .wrapper {
 .event-flag.shop {
   background-color: #a074ed;
 }
+.wrapper .event-flag.shop {
+  padding-top: 0;
+  padding-bottom: 0;
+}
 
 /**
  * Selvi Event Item
@@ -491,11 +495,21 @@ body.home .wrapper, body.bg-gray .wrapper {
 .event-item .entry-img {
   position: relative;
 }
-.event-item .text-flag {
+.event-item .entry-img img {
+  width: 100%;
+  max-width: 100%;
+}
+.event-item .text-flag-group {
   position: absolute;
   top: 10px;
   right: 10px;
   font-size: 16px;
+}
+.event-item .text-flag-group .text-flag {
+  display: block;
+}
+.event-item .text-flag-group .text-flag + .text-flag {
+  margin-top: 3px;
 }
 
 @media screen and (max-width: 1200px) and (min-width: 992px) {
@@ -871,6 +885,12 @@ body.page-event-detail header + .container {
   margin-bottom: 28px;
   text-align: center;
 }
+.event-apply .btn-selvi {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 7px;
+}
 
 .event-desc {
   margin-top: 3.125em;
@@ -1209,6 +1229,7 @@ body.page-event-detail header + .container {
   text-align: center;
 }
 .article-login .login-txt {
+  margin-bottom: 44px;
   text-align: center;
 }
 .article-login .login-txt h1 {
@@ -1225,8 +1246,12 @@ body.page-event-detail header + .container {
   color: #999;
   font-size: 1.5em;
 }
-.article-login .btn-login-facebook {
-  margin-top: 46px;
+.article-login .btn-sns-login {
+  display: block;
+  margin: 0 auto;
+}
+.article-login .btn-sns-login + .btn-sns-login {
+  margin-top: 10px;
 }
 @media screen and (max-width: 991px) {
   .article-login .box-frame {

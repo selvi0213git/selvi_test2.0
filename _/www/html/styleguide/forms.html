@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<title>Selvi Frontend Style Guide</title>
+	<link rel="stylesheet" href="../assets/css/custom-style-core.css">
+	<link rel="stylesheet" href="css/styleguide.css">
+	<link rel="stylesheet" href="js/libs/syntaxhighlighter/shCoreDefault.css">
+	<script type="text/javascript" src="js/include.js"></script>
+	<!--[if lt IE 9]>
+    <script src="js/lib/html5shiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+<div class="guide-frame">
+
+	<header id="guide-header" class="guide-header"></header>
+	<script>buildHeader();</script>
+	<!-- /.guide-header -->
+
+
+	<div class="guide-main">
+
+		<div class="guide-content">
+			<article class="article-button">
+				<h2 class="guide-page-tit">Forms</h2>
+
+				<section class="style-item">
+					<h3>Input Text</h3>
+					<ul class="item-box">
+						<li>
+							<input type="text" class="input-text" value="기본">
+							<br><br>
+							<input type="text" class="input-text col-1" value=".col-1">
+							<br><br>
+							<input type="text" class="input-text col-2" value=".col-2">
+							<br><br>
+							<input type="text" class="input-text col-3" value=".col-3">
+							<br><br>
+							<input type="text" class="input-text col-4" value=".col-4">
+							<br><br>
+							<input type="text" class="input-text col-5" value=".col-5">
+							<br><br>
+							<input type="text" class="input-text col-6" value=".col-6">
+							<br><br>
+							<input type="text" class="input-text col-7" value=".col-7">
+							<br><br>
+							<input type="text" class="input-text col-8" value=".col-8">
+							<br><br>
+							<input type="text" class="input-text col-9" value=".col-9">
+							<br><br>
+							<input type="text" class="input-text col-10" value=".col-10">
+							<br><br>
+							<input type="text" class="input-text col-11" value=".col-11">
+							<br><br>
+							<input type="text" class="input-text col-12" value=".col-12">
+						</li>
+						<li>
+							<pre class="brush: xml; toolbar: false;">
+								<input type="text" class="input-text" value="기본">
+								<input type="text" class="input-text col-1" value=".col-1">
+								<input type="text" class="input-text col-2" value=".col-2">
+								<input type="text" class="input-text col-3" value=".col-3">
+								<input type="text" class="input-text col-4" value=".col-4">
+								<input type="text" class="input-text col-5" value=".col-5">
+								<input type="text" class="input-text col-6" value=".col-6">
+								<input type="text" class="input-text col-7" value=".col-7">
+								<input type="text" class="input-text col-8" value=".col-8">
+								<input type="text" class="input-text col-9" value=".col-9">
+								<input type="text" class="input-text col-10" value=".col-10">
+								<input type="text" class="input-text col-11" value=".col-11">
+								<input type="text" class="input-text col-12" value=".col-12"></pre>
+						</li>
+					</ul><!-- /.item-box -->
+				</section><!-- /.style-item -->
+
+				<section class="style-item">
+					<h3>Search</h3>
+					<ul class="item-box">
+						<li>
+							<div class="search-form">
+								<span class="search-label">검색</span>
+								<p class="search-group">
+									<input type="text" class="input-text input-search">
+									<input type="button" class="btn-search" value="검색">
+								</p>
+							</div>
+							<br><br>
+							<p class="search-group">
+								<input type="text" class="input-text input-search">
+								<input type="button" class="btn-search" value="검색">
+							</p>
+						</li>
+						<li>
+							<pre class="brush: xml; toolbar: false;">
+								<div class="search-form">
+									<span class="search-label">검색</span>
+									<p class="search-group">
+										<input type="text" class="input-text input-search">
+										<input type="button" class="btn-search" value="검색">
+									</p>
+								</div>
+
+								<p class="search-group">
+									<input type="text" class="input-text input-search">
+									<input type="button" class="btn-search" value="검색">
+								</p></pre>
+						</li>
+					</ul><!-- /.item-box -->
+				</section><!-- /.style-item -->
+
+				<section class="style-item">
+					<h3>Textarea</h3>
+					<ul class="item-box">
+						<li>
+							<textarea class="textarea col-12">Textarea</textarea>
+						</li>
+						<li>
+							<pre class="brush: xml; toolbar: false;">
+								<textarea class="textarea col-12">Textarea</textarea></pre>
+						</li>
+					</ul><!-- /.item-box -->
+				</section><!-- /.style-item -->
+
+				<section class="style-item">
+					<h3>File</h3>
+					<ul class="item-box">
+						<li>
+							<div class="filebox">
+								<input class="input-file-name input-text" type="text" readonly="">
+						 	  <label for="attach">파일첨부</label>
+					 		  <input class="hidden-input-file" type="file" id="attach">
+							</div>
+						</li>
+						<li>
+							<pre class="brush: xml; toolbar: false;">
+								&lt;div class="filebox"&gt;
+									<input class="input-file-name input-text" type="text" readonly="">
+							 	  <label for="attach">파일첨부</label>
+						 		  <input class="hidden-input-file" type="file" id="attach">
+								&lt;/div&gt;</pre>
+						</li>
+						<li>
+							<span class="text-marker">selvi-ui.js</span>
+							<pre class="brush: js; toolbar: false;">
+								/* Run Globally */
+								$(function() {
+									ui.filebox();
+								});</pre>
+						</li>
+					</ul><!-- /.item-box -->
+				</section><!-- /.style-item -->
+
+				<section class="style-item">
+					<h3>Selectbox</h3>
+					<ul class="item-box">
+						<li>
+							<div class="styled-select-outer">
+								<select>
+									<option value="date">날짜순</option>
+									<option value="status">당첨순</option>
+								</select>
+							</div>
+							<br><br>
+							<div class="styled-select-outer col-4">
+								<select>
+									<option value="date">날짜순</option>
+									<option value="status">당첨순</option>
+								</select>
+							</div>
+						</li>
+						<li>
+							<pre class="brush: xml; toolbar: false;">
+								&lt;div class="styled-select-outer"&gt;
+									<select>
+										<option value="date">날짜순</option>
+										<option value="status">당첨순</option>
+									</select>
+								&lt;/div&gt;
+								&lt;div class="styled-select-outer col-4">
+									<select>
+										<option value="date">날짜순</option>
+										<option value="status">당첨순</option>
+									</select>
+								&lt;/div&gt;</pre>
+						</li>
+						<li>
+							<span class="text-marker">selvi-ui.js</span>
+							<pre class="brush: js; toolbar: false;">
+								/* Run Globally */
+								$(function() {
+									ui.styledSelect();
+								});</pre>
+						</li>
+					</ul><!-- /.item-box -->
+				</section><!-- /.style-item -->
+
+				<section class="style-item">
+					<h3>Checkbox</h3>
+					<ul class="item-box">
+						<li>
+							<p class="check-form">
+								<input type="checkbox" id="check0">
+								<label for="check0"></label>
+							</p>
+							<p class="check-form">
+								<input type="checkbox" id="check1" checked="checked">
+								<label for="check1"></label>
+							</p>
+							<br><br>
+							<p class="check-form">
+								<input type="checkbox" id="check2" checked="checked">
+								<label for="check2">선택하기</label>
+							</p>
+						</li>
+						<li>
+							<pre class="brush: xml; toolbar: false;">
+								<p class="check-form">
+									<input type="checkbox" id="check0">
+									<label for="check0"></label>
+								</p>
+								<p class="check-form">
+									<input type="checkbox" id="check1" checked="checked">
+									<label for="check1"></label>
+								</p>
+								<p class="check-form">
+									<input type="checkbox" id="check2" checked="checked">
+									<label for="check2">선택하기</label>
+								</p></pre>
+						</li>
+					</ul><!-- /.item-box -->
+				</section><!-- /.style-item -->
+
+				<section class="style-item">
+					<h3>Radio Button</h3>
+					<ul class="item-box">
+						<li>
+							<p class="radio-form">
+								<input type="radio" name="radio-group0" id="radio0">
+								<label for="radio0"></label>
+							</p>
+							<p class="radio-form">
+								<input type="radio" name="radio-group0" id="radio1" checked>
+								<label for="radio1"></label>
+							</p>
+							<br><br>
+							<p class="radio-form">
+								<input type="radio" name="radio-group1" id="radio2" checked>
+								<label for="radio2">선택하기</label>
+							</p>
+						</li>
+						<li>
+							<pre class="brush: xml; toolbar: false;">
+								&lt;p class="radio-form"&gt;
+									&lt;input type="radio" name="radio-group0" id="radio0"&gt;
+									&lt;label for="radio0"&gt;&lt;/label&gt;
+								&lt;/p&gt;
+								&lt;p class="radio-form"&gt;
+									&lt;input type="radio" name="radio-group0" id="radio1" checked&gt;
+									&lt;label for="radio1"&gt;&lt;/label&gt;
+								&lt;/p&gt;
+								&lt;p class="radio-form"&gt;
+									&lt;input type="radio" name="radio-group1" id="radio2" checked&gt;
+									&lt;label for="radio2"&gt;선택하기&lt;/label&gt;
+								&lt;/p&gt;</pre>
+						</li>
+					</ul><!-- /.item-box -->
+				</section><!-- /.style-item -->
+
+				<section class="style-item">
+					<h3>Form List</h3>
+
+					<ul class="item-box">
+						<li>
+							<div class="form-list">
+								<dl>
+									<dt>닉네임</dt>
+									<dd>
+										<input type="text" class="input-text col-6" value="닉네임 입력">
+									</dd>
+								</dl>
+								<dl>
+									<dt>이름(실명)<span class="required">*</span></dt>
+									<dd>
+										<input type="text" class="input-text col-6" value="이름 입력">
+									</dd>
+								</dl>
+								<dl class="field-mobile">
+									<dt>내용<span class="required">*</span></dt>
+									<dd>
+										<textarea class="textarea col-12">내용 입력</textarea>
+									</dd>
+								</dl>
+							</div><!-- /.form-list -->
+						</li>
+						<li>
+							<pre class="brush: xml; toolbar: false;">
+								<div class="form-list">
+									<dl>
+										<dt>닉네임</dt>
+										<dd>
+											<input type="text" class="input-text col-6" value="닉네임 입력">
+										</dd>
+									</dl>
+									<dl>
+										<dt>이름(실명)<span class="required">*</span></dt>
+										<dd>
+											<input type="text" class="input-text col-6" value="이름 입력">
+										</dd>
+									</dl>
+									<dl class="field-mobile">
+										<dt>내용<span class="required">*</span></dt>
+										<dd>
+											<textarea class="textarea col-12">내용 입력</textarea>
+										</dd>
+									</dl>
+								</div><!-- /.form-list --></pre>
+						</li>
+					</ul>
+				</section><!-- /.style-item -->
+
+			</article>
+		</div><!-- /.guide-content -->
+
+		<aside id="guide-sidebar" class="guide-sidebar"></aside>
+		<script>buildSidebar();</script>
+		<!-- /.guide-side -->
+
+	</div><!-- /.guide-main -->
+
+</div><!-- /.guide-frame -->
+
+<!-- Script -->
+<script 
+  src="http://code.jquery.com/jquery-1.12.4.min.js"
+  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+  crossorigin="anonymous"></script>
+<script type="text/javascript" src="../assets/js/selvi-ui.js"></script>
+<script type="text/javascript" src="js/libs/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="js/libs/syntaxhighlighter/shBrushXml.js"></script>
+<script type="text/javascript" src="js/libs/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="js/styleguide-ui.js"></script>
+	
+</body>
+</html>

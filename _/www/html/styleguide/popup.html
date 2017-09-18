@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<title>Selvi Frontend Style Guide</title>
+	<link rel="stylesheet" href="http://www.selvi.co.kr/wp-content/themes/proton/assets/css/magnific-popup.css">
+	<link rel="stylesheet" href="../assets/css/custom-style-core.css">
+	<link rel="stylesheet" href="css/styleguide.css">
+	<link rel="stylesheet" href="js/libs/syntaxhighlighter/shCoreDefault.css">
+	<script type="text/javascript" src="js/include.js"></script>
+	<!--[if lt IE 9]>
+    <script src="js/lib/html5shiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+<div class="guide-frame">
+
+	<header id="guide-header" class="guide-header"></header>
+	<script>buildHeader();</script>
+	<!-- /.guide-header -->
+
+
+	<div class="guide-main">
+
+		<div class="guide-content">
+			<article class="article-button">
+				<h2 class="guide-page-tit">Popup</h2>
+
+				<section class="style-item">
+					<h3>Alert</h3>
+					<ul class="item-box">
+						<li>
+							<section class="pop-univ pop-alert pop-apply-lose">
+								<div class="inner">
+									<h1 class="pop-header">꽝!</h1>
+									<div class="pop-content">
+										<div class="content">
+											아쉽네요.<br>
+											다른 이벤트에 도전해 보세요~
+										</div>
+										<div class="controls btn-1">
+											<input type="button" value="확인" class="btn-univ" onclick="$.magnificPopup.close();">
+										</div><!-- /.controls -->
+									</div>
+								</div><!-- /.inner -->
+							</section>
+						</li>
+						<li>
+							<pre class="brush: xml; toolbar: false;">
+								<section class="pop-univ pop-alert pop-apply-lose">
+									<div class="inner">
+										<h1 class="pop-header">꽝!</h1>
+										<div class="pop-content">
+											<div class="content">
+												아쉽네요.<br>
+												다른 이벤트에 도전해 보세요~
+											</div>
+											<div class="controls btn-1">
+												<input type="button" value="확인" class="btn-univ" onclick="$.magnificPopup.close();">
+											</div><!-- /.controls -->
+										</div>
+									</div><!-- /.inner -->
+								</section></pre>
+						</li>
+					</ul><!-- /.item-box -->
+				</section><!-- /.style-item -->
+
+				<section class="style-item">
+					<h3>Confirm</h3>
+					<ul class="item-box">
+						<li>
+							<section class="pop-univ pop-confirm pop-apply">
+								<div class="inner">
+									<h1 class="pop-header">잠깐!</h1>
+									<div class="pop-content">
+										<div class="content">
+											<em>게시글 나만보기</em> 또는 <em>공유확인 불가능 시</em> 
+											당첨이 취소 될 수 있습니다. <br>
+											공유 중 취소 &amp; 재응모 불가능 합니다. 
+										</div>
+										<div class="controls btn-2">
+											<input type="button" value="응모하기" class="btn-univ btn-confirm" onclick="btnApplyClickListener(event)">
+											<input type="button" value="취소" class="btn-univ gray btn-cancel" onclick="$.magnificPopup.close();">
+										</div><!-- /.controls -->
+									</div>
+								</div><!-- /.inner -->
+							</section>
+						</li>
+						<li>
+							<pre class="brush: xml; toolbar: false;">
+								<section class="pop-univ pop-confirm pop-apply">
+									<div class="inner">
+										<h1 class="pop-header">잠깐!</h1>
+										<div class="pop-content">
+											<div class="content">
+												<em>게시글 나만보기</em> 또는 <em>공유확인 불가능 시</em> 
+												당첨이 취소 될 수 있습니다. <br>
+												공유 중 취소 &amp; 재응모 불가능 합니다. 
+											</div>
+											<div class="controls btn-2">
+												<input type="button" value="응모하기" class="btn-univ btn-confirm" onclick="btnApplyClickListener(event)">
+												<input type="button" value="취소" class="btn-univ gray btn-cancel" onclick="$.magnificPopup.close();">
+											</div><!-- /.controls -->
+										</div>
+									</div><!-- /.inner -->
+								</section></pre>
+						</li>
+					</ul>
+				</section><!-- /.style-item -->
+
+				<section class="style-item">
+					<h3>Demo</h3>
+					<p class="guide-desc">
+						Magnific Popup 플러그인을 사용합니다.<br>
+						필요한 파일:<br>
+						<a href="http://www.selvi.co.kr/wp-content/themes/proton/assets/css/magnific-popup.css" title="http://www.selvi.co.kr/wp-content/themes/proton/assets/css/magnific-popup.css">magnific-popup.css</a><br>
+						<a href="http://www.selvi.co.kr/wp-content/themes/proton/assets/js/jquery.magnific-popup.min.js" title="http://www.selvi.co.kr/wp-content/themes/proton/assets/js/jquery.magnific-popup.min.js">jquery.magnific-popup.min.js</a>
+					</p>
+					<p class="guide-desc">
+						참고: <a href="http://dimsemenov.com/plugins/magnific-popup/documentation.html" target="win-plugin-doc" title="새창으로 열기">플러그인 도큐멘테이션 보기</a>
+					</p>
+					<ul class="item-box">
+						<li>
+							<a href="#" id="link-popup-alert" class="link-new-win">Alert 팝업 열기</a><br>
+							<a href="#" id="link-popup-confirm" class="link-new-win">Confirm 팝업 열기</a><br>
+							<a href="#" id="link-popup-iframe" class="link-new-win">iframe 팝업 열기</a>
+						</li>
+						<li>
+							<pre class="brush: js; toolbar: false;">
+								$(function() {
+									$("#link-popup-alert").on("click", function(e) {
+										e.stopPropagation();
+										ui.openModal('../1.1.3-pop-apply-lose.html', 'ajax');
+									});
+									$("#link-popup-confirm").on("click", function(e) {
+										e.stopPropagation();
+										ui.openModal('../1.1.0-pop-apply-confirm.html', 'ajax');
+									});
+
+									$("#link-popup-iframe").on("click", function(e) {
+										e.stopPropagation();
+										ui.openModal('http://www.selvi.co.kr', 'iframe');
+									});
+								});//function</pre>
+						</li>
+					</ul>
+				</section><!-- /.style-item -->
+
+			</article>
+		</div><!-- /.guide-content -->
+
+		<aside id="guide-sidebar" class="guide-sidebar"></aside>
+		<script>buildSidebar();</script>
+		<!-- /.guide-side -->
+
+	</div><!-- /.guide-main -->
+
+</div><!-- /.guide-frame -->
+
+<!-- Script -->
+<script 
+  src="http://code.jquery.com/jquery-1.12.4.min.js"
+  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+  crossorigin="anonymous"></script>
+<script type="text/javascript" src="http://selvi.co.kr/wp-content/themes/proton/assets/js/jquery.magnific-popup.min.js"></script>
+<script type="text/javascript" src="../assets/js/selvi-ui.js"></script>
+<script type="text/javascript" src="js/libs/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="js/libs/syntaxhighlighter/shBrushXml.js"></script>
+<script type="text/javascript" src="js/libs/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="js/styleguide-ui.js"></script>
+<script>
+	$(function() {
+		$("#link-popup-alert").on("click", function(e) {
+			e.stopPropagation();
+			ui.openModal('../1.1.3-pop-apply-lose.html', 'ajax');
+		});
+		$("#link-popup-confirm").on("click", function(e) {
+			e.stopPropagation();
+			ui.openModal('../1.1.0-pop-apply-confirm.html', 'ajax');
+		});
+
+		$("#link-popup-iframe").on("click", function(e) {
+			e.stopPropagation();
+			ui.openModal('http://www.selvi.co.kr', 'iframe');
+		});
+	});//function
+</script>
+	
+</body>
+</html>

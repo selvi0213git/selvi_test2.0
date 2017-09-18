@@ -48,6 +48,30 @@ class relation_list {
 		wp_get_current_user();
 		$user_id = $current_user->ID;
 		
+		//20170911 유저 접속 체크
+		$user_by    = ($user_id != 0) ? $current_user->user_login : '';
+		$user_nicename    = ($user_id != 0) ? $current_user->user_nicename : '';
+		$user_url_ck = ($user_id != 0) ? $current_user->user_url : '';
+		
+		$user_connect_ck = '';
+		
+		//페이스북
+		if(substr($user_by,0,8) == 'facebook' || substr($user_url_ck,11,8) == 'facebook') {
+			$user_connect_ck = 'facebook';
+		}
+		//네이버
+		if(substr($user_by,0,5) == 'naver' || substr($user_nicename,-9) == 'naver-com') {
+			$user_connect_ck = 'naver';
+		}
+		//카카오
+		if(substr($user_by,0,5) == 'kakao' || substr($user_nicename,0,5) == 'naver-com') {
+			$user_connect_ck = 'kakao';
+		}
+		//카카오메일
+		if(substr($user_by,-12) == '@hanmail.net' || substr($user_nicename,-11) == 'hanmail-net') {
+			$user_connect_ck = 'kakao';
+		}
+		
 		//포스트정보 가져옴
 		$post_id = get_the_ID();
 		
@@ -84,6 +108,7 @@ class relation_list {
 			
 			$event_ck_tx = "마감";
 			$event_type_tx = "배송";
+			$event_type_class = "event-flag shipping col-6";
 			
 			if(isset($relation_row)){
 				//변수설정
@@ -123,8 +148,10 @@ class relation_list {
 			//이벤트타입 텍스트 설정
 			if($event_type == 1){
 				$event_type_tx ="매장";
+				$event_type_class = "event-flag shop col-6";
 			}else{
 				$event_type_tx ="배송";
+				$event_type_class = "event-flag shipping col-6";
 			}
 			?>
 			
@@ -186,7 +213,7 @@ class relation_list {
 							<ul class="row1">
 								<li class="flags">
 									<div class="event-flag-group flex">
-										<p class="event-flag shipping col-6"><?php echo $event_type_tx ?></p>
+										<p class="<?php echo $event_type_class ?>"><?php echo $event_type_tx ?></p>
 										<p class="event-flag ing col-6"><?php echo $event_ck_tx ?></p>
 									</div><!-- /.event-flag-group -->
 								</li>
@@ -226,11 +253,26 @@ class relation_list {
 								
 							//+ 응모확인 딱지 추가
 							//<!-- yeonok: add status flag 20170824 -->
-							echo 
-								'<span class="text-flag">
-									<i class="icon facebook xs"></i>
-									<span class="tit">응모가능</span>
-								</span>';
+							//<!-- yeonok: add text-flag-group 20170913 -->
+							echo '<div class="text-flag-group">' ; 
+								//facebook
+								if( $user_connect_ck == 'facebook' || $user_connect_ck != 'facebook'){ //응모가능
+									echo 
+										'<span class="text-flag bgcolor-facebook">
+											<i class="icon facebook xs"></i>
+											<span class="tit">응모가능</span>
+										</span>';
+								}
+								
+								//kakaostroy
+								if( $user_connect_ck == 'kakao' || $user_connect_ck != 'kakao'){ //응모가능
+									echo 
+										'<span class="text-flag bgcolor-kakao">
+											<i class="icon kakaostory xs"></i>
+											<span class="tit">응모가능</span>
+										</span>';
+								}
+							echo '</div><!-- /.text-flag-group -->';
 							
 							//스크립트 변수설정을 위한 변수++
 							$i++;
